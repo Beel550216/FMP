@@ -7,6 +7,8 @@ public class Shoot : MonoBehaviour
     public GameObject player;
     public GameObject arrowPrefab;
 
+    public Transform shootPoint;
+
     public AudioClip shootingSound;
     private AudioSource shootingAudio;
 
@@ -20,10 +22,10 @@ public class Shoot : MonoBehaviour
 
     void Update()
     {
-        target = transform.GetComponent<Camera>().ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
-        bow.transform.position = new Vector3(target.x, target.y);
+        //target = transform.GetComponent<Camera>().ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -11.03));  //transform.position.z
+        //bow.transform.position = new Vector3(target.x, target.y);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        /*if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             GameObject arrow = Instantiate(arrowPrefab, bowEnd.transform.position, Quaternion.identity);
             arrow.transform.LookAt(target);
@@ -31,7 +33,42 @@ public class Shoot : MonoBehaviour
             b.AddRelativeForce(Vector3.forward);
 
             shootingAudio.PlayOneShot(shootingSound, 1.0f);
+        }*/
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            //target = transform.GetComponent<Camera>().ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
+            //bow.transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+            GameObject clone;
+            clone = Instantiate(arrowPrefab, transform.position, transform.rotation);
+
+            Rigidbody rb = clone.GetComponent<Rigidbody>();
+            rb.linearVelocity = transform.forward * 15;
+
+
+            // set the position close to the player
+            rb.transform.position = shootPoint.position;
+
         }
 
+
     }
+
+
+
+
+     /*if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            target = transform.GetComponent<Camera>().ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
+            bow.transform.position = new Vector3(target.x, target.y);
+    GameObject clone;
+    clone = Instantiate(arrowPrefab, transform.position, transform.rotation);
+
+    Rigidbody rb = clone.GetComponent<Rigidbody>();
+    rb.linearVelocity = transform.forward* 15;
+
+
+            // set the position close to the player
+            rb.transform.position = shootPoint.position;
+
+        }*/         //throws the bow into the background
 }
