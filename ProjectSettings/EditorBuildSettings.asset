@@ -4,5 +4,18 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: e2c9a926ebb287c4e8d6738687e52886
+  - enabled: 1
+    path: Assets/Scenes/Stage.unity
+    guid: 26e0de28d6d0d4548a6fc66e3cd423db
+  - enabled: 1
+    path: Assets/Scenes/Target Practice.unity
+    guid: 6283c199347521d46b9a630b3fbcf8d0
+  - enabled: 1
+    path: Assets/Scenes/Night Fever.unity
+    guid: cc035e8392e530140a2cb8d28f811403
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
