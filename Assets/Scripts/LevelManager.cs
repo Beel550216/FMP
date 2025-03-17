@@ -1,11 +1,12 @@
 using UnityEngine;
+ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
 
     public static LevelManager instance;
 
-    void Awake()
+   /* void Awake()
     {
         if (instance == null)
         {
@@ -19,12 +20,18 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }
+    }*/
+   
 
-
+    
 
     public void Quit()
     {
         Application.Quit();
+    }
+    
+    public void LoadSceneName(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

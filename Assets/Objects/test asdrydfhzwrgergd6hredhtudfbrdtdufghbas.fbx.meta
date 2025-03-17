@@ -80,7 +80,117 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cube.001
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0, y: 2.3429103, z: 0}
+      rotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 47.350235, y: 73.53444, z: 69.46466}
+    - name: Cube.002
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0, y: 0.75038624, z: 0}
+      rotation: {x: 0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 47.350235, y: 89.2481, z: 37.22836}
+    - name: Cube.003
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0, y: -0.22891553, z: 0.6561561}
+      rotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 37.658318, y: 40.02499, z: 111.76289}
+    - name: Cube.004
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0, y: -0.22891553, z: 0.6561561}
+      rotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 37.658318, y: 40.02499, z: 111.76289}
+    - name: Cube.005
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0, y: 2.3429103, z: 0}
+      rotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 47.350235, y: 73.53444, z: 69.46466}
+    - name: Cube.006
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0, y: 2.3429103, z: 0}
+      rotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 47.350235, y: 73.53444, z: 69.46466}
+    - name: Cube.007
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0, y: 2.3429103, z: 0}
+      rotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 47.350235, y: 73.53444, z: 69.46466}
+    - name: Sphere
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0, y: 3.9390283, z: 0}
+      rotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 82.33618}
+    - name: Sphere.001
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: 0.07132673, y: 0.9790814, z: 2.4954612}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 30.915619, y: 30.915619, z: 30.915619}
+    - name: Sphere.004
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0.6980878, y: 3.9476857, z: 0.8122603}
+      rotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 7.800647, y: 16.53807, z: 14.1321745}
+    - name: Sphere.005
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: 0.07132673, y: 2.7380881, z: 0.59422547}
+      rotation: {x: 0.9996075, y: -0, z: 0, w: -0.028014883}
+      scale: {x: 30.915619, y: 25.412607, z: 25.198875}
+    - name: Sphere.002
+      parentName: Sphere.005
+      position: {x: -1.4901161e-10, y: 0.015269331, z: -0.027324094}
+      rotation: {x: 0.30769536, y: 0, z: -0, w: 0.9514849}
+      scale: {x: 1, y: 1.0048949, z: 2.8019893}
+    - name: Sphere.007
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0.4505929, y: 2.640742, z: 0.557739}
+      rotation: {x: 0.77245003, y: -0.33691698, z: -0.31762862, w: 0.43464923}
+      scale: {x: -9.882499, y: -13.371578, z: -35.060997}
+    - name: Sphere.008
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0.7756111, y: 4.62235, z: 0.41177115}
+      rotation: {x: 0.85403377, y: -0.2934759, z: -0.06943517, w: -0.42388326}
+      scale: {x: 9.4853525, y: 35.54019, z: 43.011185}
+    - name: Sphere.009
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0.68831813, y: 2.2644663, z: 0.045374334}
+      rotation: {x: 0.70514417, y: -0.0084637245, z: -0.018112257, w: 0.7087821}
+      scale: {x: -19.751099, y: -64.12917, z: -40.47323}
+    - name: Sphere.010
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0, y: 4.518653, z: 0}
+      rotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 95.92161, y: 83.2945, z: 59.88921}
+    - name: Sphere.011
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0.30939615, y: 4.5774703, z: 0.6511019}
+      rotation: {x: 0.63825387, y: -0.5414762, z: -0.27229, w: -0.47465128}
+      scale: {x: 9.4853525, y: 35.54019, z: 43.011185}
+    - name: Sphere.016
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: 1.168938, y: 3.7626348, z: 0.031897597}
+      rotation: {x: -0.70519435, y: -0.05197023, z: 0.051970232, w: 0.7051945}
+      scale: {x: 75.94677, y: 101.66617, z: 153.81606}
+    - name: Sphere.017
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0, y: 4.518653, z: 0}
+      rotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
+      scale: {x: 95.92161, y: 83.2945, z: 59.88921}
+    - name: Sphere.018
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: -0.7756111, y: 4.62235, z: 0.41177115}
+      rotation: {x: 0.85403377, y: -0.2934759, z: -0.06943517, w: -0.42388326}
+      scale: {x: 9.4853525, y: 35.54019, z: 43.011185}
+    - name: Torus.005
+      parentName: test asdrydfhzwrgergd6hredhtudfbrdtdufghbas(Clone)
+      position: {x: 0.45245314, y: 4.666634, z: 0}
+      rotation: {x: -0.50127566, y: 0.49872106, z: -0.49872103, w: 0.50127566}
+      scale: {x: 44.90992, y: 41.377937, z: 173.12573}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
