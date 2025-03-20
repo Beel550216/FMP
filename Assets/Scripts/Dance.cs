@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dance : MonoBehaviour
 {
-    string[] Array = { "Dance1", "Dance2", "Dance3" };
+    //string[] Array = { "Dance1", "Dance2", "Dance3" };
 
     //MyElement = Elements[Random.Range(0, Elements.Length)];
     void Start()

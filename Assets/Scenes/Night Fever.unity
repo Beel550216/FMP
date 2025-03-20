@@ -598,6 +598,29 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1 &220402512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4671605939148664273, guid: 1f9849f7d75d6be42b9c4cfe055cb875, type: 3}
+  m_PrefabInstance: {fileID: 1029236061}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &220402513 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8267876220821707976, guid: 1f9849f7d75d6be42b9c4cfe055cb875, type: 3}
+  m_PrefabInstance: {fileID: 1029236061}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &220402517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220402512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c131e04f3b0aa43a3684398e849a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 220402513}
 --- !u!1 &340834089
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,7 +3317,7 @@ GameObject:
   - component: {fileID: 1023459352}
   m_Layer: 5
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: button1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3361,7 +3384,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1023459353}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 220402517}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: Pose1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1023459353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3420,7 +3455,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 5243157332971381705, guid: 1f9849f7d75d6be42b9c4cfe055cb875, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6328118127592468858, guid: 1f9849f7d75d6be42b9c4cfe055cb875, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282599046306489429, guid: 1f9849f7d75d6be42b9c4cfe055cb875, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056316594371217809, guid: 1f9849f7d75d6be42b9c4cfe055cb875, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3473,9 +3520,13 @@ PrefabInstance:
       value: -27.807007
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6774504130986985379, guid: 1f9849f7d75d6be42b9c4cfe055cb875, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4671605939148664273, guid: 1f9849f7d75d6be42b9c4cfe055cb875, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 220402517}
   m_SourcePrefab: {fileID: 100100000, guid: 1f9849f7d75d6be42b9c4cfe055cb875, type: 3}
 --- !u!1 &1058063864
 GameObject:
