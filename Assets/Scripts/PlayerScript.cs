@@ -30,6 +30,10 @@ public class PlayerScript : MonoBehaviour
         {
             Pose3();
         }
+        if (Input.GetKey(KeyCode.F))
+        {
+            Pose4();
+        }
 
     }
 
@@ -48,6 +52,11 @@ public class PlayerScript : MonoBehaviour
         Animate(4);
         print("Pose 3");
     }
+    public void Pose4()
+    {
+        Animate(5);
+        print("Pose 4");
+    }
 
 
 
@@ -61,6 +70,7 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("pose1", false);
             anim.SetBool("pose2", false);
             anim.SetBool("pose3", false);
+            anim.SetBool("pose4", false);
         }
 
         if (num == 2)
@@ -76,6 +86,11 @@ public class PlayerScript : MonoBehaviour
         if (num == 4)
         {
             anim.SetBool("pose3", true);
+        }
+
+        if (num == 5)
+        {
+            anim.SetBool("pose4", true);
         }
 
     }
