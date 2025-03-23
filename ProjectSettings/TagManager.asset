@@ -6,6 +6,7 @@ TagManager:
   tags:
   - lights
   - button1
+  - Dancer
   layers:
   - Default
   - TransparentFX
