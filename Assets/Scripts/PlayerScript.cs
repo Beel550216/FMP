@@ -1,8 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerScript : MonoBehaviour
 {
     public Animator anim;
+    public GameObject playerActions;
+    public TMP_Text playerActionText;
+
     //public float buttonNumber = 1f;
     void Start()
     {
@@ -21,18 +25,22 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             Pose1();
+            playerActionText.text = "A";
         }
         if (Input.GetKey(KeyCode.S))
         {
             Pose2();
+            playerActionText.text = "S";
         }
         if (Input.GetKey(KeyCode.D))
         {
             Pose3();
+            playerActionText.text = "D";
         }
         if (Input.GetKey(KeyCode.F))
         {
             Pose4();
+            playerActionText.text = "F";
         }
 
     }

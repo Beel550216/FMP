@@ -1,6 +1,8 @@
 using UnityEngine;
  using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -10,6 +12,20 @@ public class LevelManager : MonoBehaviour
     public Animator anim;
     public int counter;
     public int camCount;
+    public GameObject textBox;
+    public GameObject next;
+    public GameObject back;
+    public GameObject instructions;
+    public GameObject playerActions;
+
+    public TMP_Text text;
+    public TMP_Text instructionText;
+    public TMP_Text playerActionText;
+
+    public int action;
+    public int playerAction;
+
+    public float randomPose;
 
     Vector3[] cameraPos;
     Vector3[] cameraRot;
@@ -55,7 +71,7 @@ public class LevelManager : MonoBehaviour
             print("NIGHT FEVER!");
             
             counter = 0;
-            camCount = 3;               // counter for the camera movement
+            camCount = 4;               // counter for the camera movement
             CutsceneList(0);
         }
 
@@ -65,10 +81,26 @@ public class LevelManager : MonoBehaviour
 
     void CutsceneList(int num)
     {
-
-        camCount++;
+        
+        //camCount++;
         MoveCamera(camCount);
         Animate(counter);
+        TextBox(counter);
+
+        if (num == 2)
+        {
+            back.SetActive(true);
+        }
+
+        if (num == 4)
+        {
+            next.SetActive(false);
+            back.SetActive(false);
+            textBox.SetActive(false);
+            instructions.SetActive(true);
+            playerActions.SetActive(true);
+            StartDance();
+        }
 
     }
 
@@ -84,23 +116,174 @@ public class LevelManager : MonoBehaviour
         {
             anim.SetBool("pose1", true);
         }
-        
+        if (num == 2)
+        {
+            anim.SetBool("pose2", true);
+            anim.SetBool("pose1", false);
+        }
+        if (num == 3)
+        {
+            anim.SetBool("pose2", false);
+            anim.SetBool("pose3", true);
+        }
+        if (num == 4)
+        {
+            anim.SetBool("pose3", false);
+        }
+
     }
 
-    public void ButtonPress()
+    public void ButtonPress(int index)
     {
-        counter++;
+        if (index == 1)
+        {
+            counter++;
+            camCount++;
+        }
+        if (index == 2)
+        {
+            counter--;
+            camCount--;
+        }
+
+
         print("counter = " + counter);
         CutsceneList(counter);
 
     }
 
 
+    public void TextBox(int num)
+    {
+
+        if (num == 0)
+        {
+            
+        }
+        if (num == 1)
+        {
+            textBox.SetActive(true);
+            text.text = "Welcome to the dancefloor!";
+        }
+        if (num == 2)
+        {
+            textBox.SetActive(true);
+            text.text = "Copy my dance moves in order to score points.";
+        }
+        if (num == 3)
+        {
+            textBox.SetActive(true);
+            text.text = "Use the ASDF keys to dance.";
+        }
+    }
+
+
+    
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Night Fever")
+        {
+            if (counter == 4)
+            {
+                print("running");
+                if (action == playerAction)
+                {
+                    instructionText.text = "Correct!";
+                    StartDance();
+                }
+            }
+        }
+    }
+    
+    
+    void StartDance()
+    {
+        int randomInt = Random.Range(2, 5);
+        int randomCounter = randomInt;
+
+        print("number of moves = " + randomCounter);
+
+        if (randomCounter != 0)
+        {
+            RandomPose();
+            randomCounter--;
+        }
+        KeyCheck();
+        /*if (action == playerAction)
+        {
+            text.text = "Correct!";
+            //StartDance();
+        }*/
+
+    }
 
 
 
+    void RandomPose()
+    {
+        randomPose =  Random.Range(1f, 4f);
+
+        anim.SetBool("pose1", false);
+        anim.SetBool("pose2", false);
+        anim.SetBool("pose3", false);
+        anim.SetBool("pose4", false);
+
+        instructionText.text = "";
+
+        if (randomPose >= 1)
+        {
+            anim.SetBool("pose1", true);
+            action = 1;
+            instructionText.text = instructionText.text + " A";
+            print("Dancer A");
+        }
+        if (randomPose >= 2)
+        {
+            anim.SetBool("pose2", true);
+            action = 2;
+            instructionText.text = instructionText.text + " S";
+            print("Dancer S");
+        }
+        if (randomPose >= 3)
+        {
+            anim.SetBool("pose3", true);
+            action = 3;
+            instructionText.text = instructionText.text + " D";
+            print("Dancer D");
+        }
+        if (randomPose >= 4)
+        {
+            anim.SetBool("pose4", true);
+            action = 4;
+            instructionText.text = instructionText.text + " F";
+            print("Dancer F");
+        }
 
 
+    }
+
+
+
+    void KeyCheck()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            playerAction = 1;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            playerAction = 2;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            playerAction = 3;
+        }
+        if (Input.GetKey(KeyCode.F))
+        {
+            playerAction = 4;
+        }
+    }
 
 
 
@@ -116,7 +299,10 @@ public class LevelManager : MonoBehaviour
             new Vector3(-7.416f, 1.575f, 1.913f),  // camera 3 pos
 
             new Vector3(-42.1f, 9.48f, -8.28f),   // 4   - disco scene
-            new Vector3(-34.65f, 6.72f, 7.89f)
+            new Vector3(-34.65f, 6.72f, 7.89f),
+            new Vector3(-34.65f, 6.72f, 7.89f),
+            new Vector3(-34.65f, 6.72f, 7.89f),
+            new Vector3(-42.1f, 9.48f, -8.28f)
 
         };
 
@@ -129,7 +315,10 @@ public class LevelManager : MonoBehaviour
             new Vector3(0f, -92.818f, 0f),
 
             new Vector3(14.326f, 31.011f, 0f),    // 4   - disco scene
-            new Vector3(0.802f, 51.06f, 0.325f)
+            new Vector3(0.802f, 51.06f, 0.325f),
+            new Vector3(0.802f, 51.06f, 0.325f),
+            new Vector3(0.802f, 51.06f, 0.325f),
+            new Vector3(14.326f, 31.011f, 0f)
 
         };
     }
@@ -141,20 +330,8 @@ public class LevelManager : MonoBehaviour
         print("Camera to index " + index);
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
     
     
     

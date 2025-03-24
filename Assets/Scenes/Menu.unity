@@ -3906,18 +3906,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1740872060}
-        m_TargetAssemblyTypeName: CameraMove, Assembly-CSharp
-        m_MethodName: MoveCamera
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 638639775}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -3938,6 +3926,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1657529028}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: MoveCamera
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -4386,6 +4386,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  counter: 0
+  camCount: 0
+  textBox: {fileID: 0}
+  next: {fileID: 0}
+  instructions: {fileID: 0}
 --- !u!4 &1657529029
 Transform:
   m_ObjectHideFlags: 0
@@ -4853,8 +4858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ce8c10abacde843b27963eea05ecf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPos: []
-  cameraRot: []
 --- !u!4 &1744630786 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 08758a7c546b97b428f99c9423be148e, type: 3}
