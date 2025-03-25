@@ -2011,8 +2011,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -79, y: 47}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -79, y: 50}
+  m_SizeDelta: {x: 100, y: 104}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &640621792
 GameObject:
@@ -3429,7 +3429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -37.5, y: 3.0000057}
+  m_AnchoredPosition: {x: -37.5, y: 3}
   m_SizeDelta: {x: 160, y: -80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1259089023
@@ -4390,7 +4390,15 @@ MonoBehaviour:
   camCount: 0
   textBox: {fileID: 0}
   next: {fileID: 0}
+  back: {fileID: 0}
   instructions: {fileID: 0}
+  playerActions: {fileID: 0}
+  text: {fileID: 0}
+  instructionText: {fileID: 0}
+  playerActionText: {fileID: 0}
+  action: 0
+  playerAction: 0
+  randomPose: 0
 --- !u!4 &1657529029
 Transform:
   m_ObjectHideFlags: 0

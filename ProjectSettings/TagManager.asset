@@ -8,6 +8,7 @@ TagManager:
   - button1
   - Dancer
   - textbox
+  - coin
   layers:
   - Default
   - TransparentFX

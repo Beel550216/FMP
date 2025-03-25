@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Night Fever.unity
     guid: cc035e8392e530140a2cb8d28f811403
+  - enabled: 1
+    path: Assets/Scenes/Minigame 1.unity
+    guid: 40cacf938fd5ccc4fb13cf1392db1f43
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -222,12 +222,13 @@ public class LevelManager : MonoBehaviour
 
     void RandomPose()
     {
-        randomPose =  Random.Range(1f, 4f);
+        randomPose =  Random.Range(1f, 6f);
 
         anim.SetBool("pose1", false);
         anim.SetBool("pose2", false);
         anim.SetBool("pose3", false);
         anim.SetBool("pose4", false);
+        anim.SetBool("check", false);
 
         instructionText.text = "";
 
@@ -237,6 +238,8 @@ public class LevelManager : MonoBehaviour
             action = 1;
             instructionText.text = instructionText.text + " A";
             print("Dancer A");
+
+            anim.SetBool("check", true);
         }
         if (randomPose >= 2)
         {
@@ -244,6 +247,7 @@ public class LevelManager : MonoBehaviour
             action = 2;
             instructionText.text = instructionText.text + " S";
             print("Dancer S");
+            anim.SetBool("check", true);
         }
         if (randomPose >= 3)
         {
@@ -251,6 +255,7 @@ public class LevelManager : MonoBehaviour
             action = 3;
             instructionText.text = instructionText.text + " D";
             print("Dancer D");
+            anim.SetBool("check", true);
         }
         if (randomPose >= 4)
         {
@@ -258,6 +263,7 @@ public class LevelManager : MonoBehaviour
             action = 4;
             instructionText.text = instructionText.text + " F";
             print("Dancer F");
+            anim.SetBool("check", true);
         }
 
 
