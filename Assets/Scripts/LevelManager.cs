@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
 
     public Animator anim;
+    public Animator playerAnim;
     public int counter;
     public int camCount;
     public GameObject textBox;
@@ -26,6 +27,10 @@ public class LevelManager : MonoBehaviour
     public int playerAction;
 
     public float randomPose;
+
+
+    public int pointsTotal = 0;
+    int discoPoints = 0;
 
     Vector3[] cameraPos;
     Vector3[] cameraRot;
@@ -56,6 +61,13 @@ public class LevelManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Menu")
         {
             print("Menu");
+
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage")
+        {
+            print("Stage");
+            playerAnim.SetBool("stage idle", true);
 
         }
 
@@ -111,15 +123,19 @@ public class LevelManager : MonoBehaviour
         if(num == 0)
         {
             anim.SetBool("pose1", false);
+            anim.SetBool("pose2", false);
+            anim.SetBool("pose3", false);
+            anim.SetBool("pose4", false);
+            anim.SetBool("cutscene", false);
         }
         if(num == 1)
         {
-            anim.SetBool("pose1", true);
+            anim.SetBool("cutscene", true);
         }
         if (num == 2)
         {
             anim.SetBool("pose2", true);
-            anim.SetBool("pose1", false);
+            anim.SetBool("cutscene", false);
         }
         if (num == 3)
         {
@@ -142,8 +158,12 @@ public class LevelManager : MonoBehaviour
         }
         if (index == 2)
         {
-            counter--;
-            camCount--;
+            if(camCount >= 5)
+            {
+                counter--;
+                camCount--; 
+            }
+            
         }
 
 
@@ -190,9 +210,11 @@ public class LevelManager : MonoBehaviour
                 if (action == playerAction)
                 {
                     instructionText.text = "Correct!";
+                    discoPoints = discoPoints = 10;
+                    Animate(0);
+
                     StartDance();
                 }
-
 
                 KeyCheck();
             }
@@ -213,11 +235,6 @@ public class LevelManager : MonoBehaviour
             randomCounter--;
         }
         KeyCheck();
-        /*if (action == playerAction)
-        {
-            text.text = "Correct!";
-            //StartDance();
-        }*/
 
     }
 
@@ -227,11 +244,7 @@ public class LevelManager : MonoBehaviour
     {
         randomPose =  Random.Range(1f, 6f);
 
-        anim.SetBool("pose1", false);
-        anim.SetBool("pose2", false);
-        anim.SetBool("pose3", false);
-        anim.SetBool("pose4", false);
-        anim.SetBool("check", false);
+        Animate(0);
 
         instructionText.text = "";
 
