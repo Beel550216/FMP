@@ -186,12 +186,15 @@ public class LevelManager : MonoBehaviour
         {
             if (counter == 4)
             {
-                print("running");
+                //print("running");
                 if (action == playerAction)
                 {
                     instructionText.text = "Correct!";
                     StartDance();
                 }
+
+
+                KeyCheck();
             }
         }
     }
@@ -273,6 +276,7 @@ public class LevelManager : MonoBehaviour
 
     void KeyCheck()
     {
+        print("Keychecking");
         if (Input.GetKey(KeyCode.A))
         {
             playerAction = 1;
