@@ -9,6 +9,9 @@ TagManager:
   - Dancer
   - textbox
   - coin
+  - message 1
+  - message 2
+  - message 3
   layers:
   - Default
   - TransparentFX

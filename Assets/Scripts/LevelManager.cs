@@ -16,10 +16,12 @@ public class LevelManager : MonoBehaviour
     public GameObject textBox;
     public GameObject next;
     public GameObject back;
+    public GameObject skip;
     public GameObject instructions;
     public GameObject playerActions;
 
     public TMP_Text text;
+    public TMP_Text wellDoneText;
     public TMP_Text instructionText;
     public TMP_Text playerActionText;
 
@@ -69,6 +71,10 @@ public class LevelManager : MonoBehaviour
             print("Stage");
             playerAnim.SetBool("stage idle", true);
 
+            camCount = 9;
+            counter = 5;
+            CutsceneList(5);
+
         }
 
         if (SceneManager.GetActiveScene().name == "Target Practice")
@@ -93,11 +99,13 @@ public class LevelManager : MonoBehaviour
 
     void CutsceneList(int num)
     {
+        print("num =" + num);
         
         //camCount++;
         MoveCamera(camCount);
         Animate(counter);
         TextBox(counter);
+
 
         if (num == 2)
         {
@@ -112,6 +120,11 @@ public class LevelManager : MonoBehaviour
             instructions.SetActive(true);
             playerActions.SetActive(true);
             StartDance();
+        }
+
+        if (num == 5)
+        {
+            print("working");                    //
         }
 
     }
@@ -147,6 +160,29 @@ public class LevelManager : MonoBehaviour
             anim.SetBool("pose3", false);
         }
 
+        if (num == 6 || num == 8)
+        {
+            anim.SetBool("point", false);
+            anim.SetBool("talk", false);
+            anim.SetBool("start", true);
+        }
+        if (num == 7)
+        {
+            anim.SetBool("point", true);
+        }
+        if (num == 9 || num == 10 || num == 11)
+        {
+            anim.SetBool("point", false);
+            anim.SetBool("talk", false);
+            anim.SetBool("look sideways", true);
+        }
+        if (num == 12)
+        {
+            anim.SetBool("point", false);
+            anim.SetBool("look sideways", false);
+            anim.SetBool("talk", false);
+        }
+
     }
 
     public void ButtonPress(int index)
@@ -164,6 +200,15 @@ public class LevelManager : MonoBehaviour
                 camCount--; 
             }
             
+        }
+
+        if (index == 3)
+        {
+            print("skip pressed");
+            skip.SetActive(false);
+            next.SetActive(true);
+            //counter = 12;
+            //camCount = 12;
         }
 
 
@@ -195,6 +240,36 @@ public class LevelManager : MonoBehaviour
             textBox.SetActive(true);
             text.text = "Use the ASDF keys to dance.";
         }
+
+
+        if (num == 6)
+        {
+            textBox.SetActive(true);
+            text.text = "Welcome to Lii Party!";
+
+        }
+        if (num == 7)
+        {
+            text.text = "Have you played Lii Party before?";
+            skip.SetActive(true);
+            next.SetActive(false);
+        }
+        if (num == 8)
+        {
+            text.text = "Ok, I'll explain how it works!";
+            skip.SetActive(false);
+            next.SetActive(true);
+        }
+        if (num == 9)
+        {
+            text.text = "The aim of the game is to collect as many points as you can";
+            back.SetActive(true);
+        }
+        if (num == 10)
+        {
+            text.text = "You can accumulate points through the minigame rounds";
+        }
+
     }
 
 
@@ -209,6 +284,7 @@ public class LevelManager : MonoBehaviour
                 //print("running");
                 if (action == playerAction)
                 {
+                    WellDone();
                     instructionText.text = "Correct!";
                     discoPoints = discoPoints = 10;
                     Animate(0);
@@ -232,7 +308,7 @@ public class LevelManager : MonoBehaviour
         if (randomCounter != 0)
         {
             RandomPose();
-            randomCounter--;
+            //randomCounter--;
         }
         KeyCheck();
 
@@ -248,7 +324,7 @@ public class LevelManager : MonoBehaviour
 
         instructionText.text = "";
 
-        if (randomPose >= 1)
+        if (randomPose >= 1)            //&& randomPose < 2
         {
             anim.SetBool("pose1", true);
             action = 1;
@@ -290,6 +366,7 @@ public class LevelManager : MonoBehaviour
     void KeyCheck()
     {
         print("Keychecking");
+
         if (Input.GetKey(KeyCode.A))
         {
             playerAction = 1;
@@ -309,6 +386,33 @@ public class LevelManager : MonoBehaviour
     }
 
 
+    public void WellDone()
+    {
+        float randomMessage = Random.Range(1f, 5f);
+
+        if (randomMessage > 1)
+        {
+            wellDoneText.text = "Nice!";
+        }
+        if (randomMessage > 2 && randomMessage < 3)
+        {
+            wellDoneText.text = "Groovy!";
+        }
+        if (randomMessage > 3 && randomMessage < 4)
+        {
+            wellDoneText.text = "Yes!";
+        }
+        if (randomMessage > 4 && randomMessage <= 5)
+        {
+            wellDoneText.text = "Go!";
+        }
+    }
+
+
+
+
+
+
 
 
     void CameraMovement()
@@ -325,7 +429,17 @@ public class LevelManager : MonoBehaviour
             new Vector3(-34.65f, 6.72f, 7.89f),
             new Vector3(-34.65f, 6.72f, 7.89f),
             new Vector3(-34.65f, 6.72f, 7.89f),
-            new Vector3(-42.1f, 9.48f, -8.28f)
+            new Vector3(-42.1f, 9.48f, -8.28f),
+
+            new Vector3(-17.02f, 11.764f, -19.45f),
+            new Vector3(3.754f, 10.366f, -14.728f),
+            new Vector3(3.754f, 10.366f, -14.728f),
+            new Vector3(0.34f, 10.79f, -21.25f),
+            new Vector3(0.27f, 10.79f, -11.329f),
+            new Vector3(0.27f, 10.79f, -11.329f)
+
+            //new Vector3(3.754f, 10.366f, -14.728f),
+
 
         };
 
@@ -341,7 +455,16 @@ public class LevelManager : MonoBehaviour
             new Vector3(0.802f, 51.06f, 0.325f),
             new Vector3(0.802f, 51.06f, 0.325f),
             new Vector3(0.802f, 51.06f, 0.325f),
-            new Vector3(14.326f, 31.011f, 0f)
+            new Vector3(14.326f, 31.011f, 0f),
+
+            new Vector3(0f, 47.794f, 0f),        // 9   - stage scene
+            new Vector3(0f, 42.915f, 0f),
+            new Vector3(0f, 42.915f, 0f),
+            new Vector3(0f, 42.915f, 0f),
+            new Vector3(0f, 80.962f, 0f),
+            new Vector3(0f, 80.962f, 0f)
+
+            //new Vector3(0f, 42.915f, 0f),
 
         };
     }
