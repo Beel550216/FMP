@@ -6,7 +6,6 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
-
     public static LevelManager instance;
 
     public Animator anim;
@@ -36,13 +35,20 @@ public class LevelManager : MonoBehaviour
 
     Vector3[] cameraPos;
     Vector3[] cameraRot;
-   
+
+
+    string[] speech;
+    public string speechText;
+    //List<string> speech = new List<string>();
+
 
     void Start()
     {
         CameraMovement();
         SceneCheck();
-        
+
+        List();
+        print(speech[1] + "- test");
     }
     
 
@@ -162,8 +168,6 @@ public class LevelManager : MonoBehaviour
 
         if (num == 6 || num == 8)
         {
-            anim.SetBool("point", false);
-            anim.SetBool("talk", false);
             anim.SetBool("start", true);
         }
         if (num == 7)
@@ -172,14 +176,16 @@ public class LevelManager : MonoBehaviour
         }
         if (num == 9 || num == 10 || num == 11)
         {
-            anim.SetBool("point", false);
-            anim.SetBool("talk", false);
             anim.SetBool("look sideways", true);
         }
         if (num == 12)
         {
-            anim.SetBool("point", false);
             anim.SetBool("look sideways", false);
+        }
+
+        if (num >= 6 && num <= 12 && num != 7)
+        {
+            anim.SetBool("point", false);
             anim.SetBool("talk", false);
         }
 
@@ -207,67 +213,65 @@ public class LevelManager : MonoBehaviour
             print("skip pressed");
             skip.SetActive(false);
             next.SetActive(true);
-            //counter = 12;
-            //camCount = 12;
+            counter = 12;
+            camCount = 16;
         }
-
-
         print("counter = " + counter);
         CutsceneList(counter);
 
+        string speechText = speech[counter];
+        text.text = (speechText);
+
+        print(speech[counter]);
     }
 
 
     public void TextBox(int num)
     {
-        if (num == 1)
+        if (num == 1 || num == 6)
         {
             textBox.SetActive(true);
-            text.text = "Welcome to the dancefloor!";
-        }
-        if (num == 2)
-        {
-            textBox.SetActive(true);
-            text.text = "Copy my dance moves in order to score points.";
-        }
-        if (num == 3)
-        {
-            textBox.SetActive(true);
-            text.text = "Use the ASDF keys to dance.";
-        }
-
-
-        if (num == 6)
-        {
-            textBox.SetActive(true);
-            text.text = "Welcome to Lii Party!";
-
         }
         if (num == 7)
         {
-            text.text = "Have you played Lii Party before?";
             skip.SetActive(true);
             next.SetActive(false);
         }
         if (num == 8)
         {
-            text.text = "Ok, I'll explain how it works!";
             skip.SetActive(false);
             next.SetActive(true);
         }
         if (num == 9)
         {
-            text.text = "The aim of the game is to collect as many points as you can";
             back.SetActive(true);
-        }
-        if (num == 10)
-        {
-            text.text = "You can accumulate points through the minigame rounds";
         }
 
     }
 
+    public void List()
+    {
+        speech = new[]
+        {
+            new string(""),
+            new string("Welcome to the dancefloor!"),
+            new string("Copy my dance moves in order to score points."),
+            new string("Use the ASDF keys to dance."),
+            new string(""),
+            new string(""),
 
+            new string("Welcome to Lii Party!"),
+            new string("Have you played Lii Party before?"),
+            new string("Ok, I'll explain how it works!"),
+            new string("The aim of the game is to collect as many points as you can"),
+            new string("You can accumulate points through the minigame rounds!"),
+            new string("There are 3 minigames today"),
+            new string("Okay..."),
+            new string("Are you ready to start?"),
+
+        };
+
+    }
     
 
     private void Update()
@@ -282,11 +286,10 @@ public class LevelManager : MonoBehaviour
                     WellDone();
                     instructionText.text = "Correct!";
                     discoPoints = discoPoints = 10;
-                    Animate(0);
+                    //Animate(0);
 
                     StartDance();
                 }
-
                 KeyCheck();
             }
         }
@@ -405,11 +408,6 @@ public class LevelManager : MonoBehaviour
 
 
 
-
-
-
-
-
     void CameraMovement()
     {
         cameraPos = new[]
@@ -418,9 +416,9 @@ public class LevelManager : MonoBehaviour
             new Vector3(-5.38f, 1.34f, 2.224f),  // camera 1 pos
             new Vector3(-6.206f, 1.257f, 2.489f),  // camera 2 pos 
             new Vector3(-5.38f, 1.34f, 2.224f),  // camera 3 pos
-            new Vector3(-7.416f, 1.575f, 1.913f),  // camera 3 pos
+            new Vector3(-7.416f, 1.575f, 1.913f),  // camera 4 pos
 
-            new Vector3(-42.1f, 9.48f, -8.28f),   // 4   - disco scene
+            new Vector3(-42.1f, 9.48f, -8.28f),   // 5   - disco scene
             new Vector3(-34.65f, 6.72f, 7.89f),
             new Vector3(-34.65f, 6.72f, 7.89f),
             new Vector3(-34.65f, 6.72f, 7.89f),
@@ -428,11 +426,14 @@ public class LevelManager : MonoBehaviour
 
             new Vector3(-17.02f, 11.764f, -19.45f),
             new Vector3(3.754f, 10.366f, -14.728f),
-            new Vector3(3.754f, 10.366f, -14.728f),
+            new Vector3(3.754f, 10.366f, -14.728f), //
             new Vector3(0.34f, 10.79f, -21.25f),
             new Vector3(0.27f, 10.79f, -11.329f),
-            new Vector3(0.27f, 10.79f, -11.329f)
+            new Vector3(0.27f, 10.79f, -11.329f),
+            new Vector3(0.433f, 10.708f, -12.355f),
 
+            new Vector3(0.784f, 10.708f, -15.641f),
+            new Vector3(0.784f, 10.708f, -15.641f)
             //new Vector3(3.754f, 10.366f, -14.728f),
 
 
@@ -457,7 +458,10 @@ public class LevelManager : MonoBehaviour
             new Vector3(0f, 42.915f, 0f),
             new Vector3(0f, 42.915f, 0f),
             new Vector3(0f, 80.962f, 0f),
-            new Vector3(0f, 80.962f, 0f)
+            new Vector3(0f, 80.962f, 0f),
+            new Vector3(0f, 80.962f, 0f),
+            new Vector3(0f, 67.794f, 0f),
+            new Vector3(0f, 67.794f, 0f),
 
             //new Vector3(0f, 42.915f, 0f),
 
