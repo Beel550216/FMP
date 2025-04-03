@@ -1743,7 +1743,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -4393,16 +4393,23 @@ MonoBehaviour:
   next: {fileID: 0}
   back: {fileID: 0}
   skip: {fileID: 0}
+  nextGame: {fileID: 0}
   instructions: {fileID: 0}
   playerActions: {fileID: 0}
+  EndScreen: {fileID: 0}
   text: {fileID: 0}
   wellDoneText: {fileID: 0}
   instructionText: {fileID: 0}
   playerActionText: {fileID: 0}
+  roundNumberText: {fileID: 0}
+  pointsText: {fileID: 0}
+  totalPointsText: {fileID: 0}
   action: 0
   playerAction: 0
   randomPose: 0
   pointsTotal: 0
+  round: 0
+  speechText: 
 --- !u!4 &1657529029
 Transform:
   m_ObjectHideFlags: 0
@@ -6345,7 +6352,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}

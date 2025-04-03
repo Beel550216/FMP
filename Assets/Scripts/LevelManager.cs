@@ -16,13 +16,18 @@ public class LevelManager : MonoBehaviour
     public GameObject next;
     public GameObject back;
     public GameObject skip;
+    public GameObject nextGame;
     public GameObject instructions;
     public GameObject playerActions;
+    public GameObject EndScreen;
 
     public TMP_Text text;
     public TMP_Text wellDoneText;
     public TMP_Text instructionText;
     public TMP_Text playerActionText;
+    public TMP_Text roundNumberText;
+    public TMP_Text pointsText;
+    public TMP_Text totalPointsText;
 
     public int action;
     public int playerAction;
@@ -32,6 +37,7 @@ public class LevelManager : MonoBehaviour
 
     public int pointsTotal = 0;
     int discoPoints = 0;
+    public int round = 0;
 
     Vector3[] cameraPos;
     Vector3[] cameraRot;
@@ -280,17 +286,32 @@ public class LevelManager : MonoBehaviour
         {
             if (counter == 4)
             {
-                //print("running");
-                if (action == playerAction)
-                {
-                    WellDone();
-                    instructionText.text = "Correct!";
-                    discoPoints = discoPoints = 10;
-                    //Animate(0);
 
-                    StartDance();
+                if (round != 7)
+                {
+                    if (action == playerAction)
+                    {
+                        WellDone();
+                        instructionText.text = "Correct!";
+                        discoPoints = discoPoints + 10;
+                        print("Points for this minigame = " + discoPoints);
+
+                        //Animate(0);
+
+                        StartDance();
+
+                    }
+                    KeyCheck();
+
                 }
-                KeyCheck();
+                /*if (round == 7)
+                {
+                    instructionText.text = instructionText.text + " Well done!";
+                }*/ // -error
+                //print("running");
+
+                EndOfRound();
+
             }
         }
     }
@@ -404,9 +425,35 @@ public class LevelManager : MonoBehaviour
         {
             wellDoneText.text = "Go!";
         }
+
+        round++;
+        print("round = " + round);
+        string roundNumber = round.ToString();
+        roundNumberText.text = roundNumber;
     }
 
+    void EndOfRound()
+    {
+        if (round == 7)
+        {
+            instructionText.text = " Well done!";
+            
+            anim.SetBool("check", false);
+            anim.SetBool("clap", true);
+            
+            counter = 5;
+            instructions.SetActive(false);
+            EndScreen.SetActive(true);
+            next.SetActive(true);
 
+            pointsTotal = pointsTotal + discoPoints;
+
+            pointsText.text = discoPoints.ToString();
+            totalPointsText.text = pointsTotal.ToString();
+        }
+        
+
+    }
 
     void CameraMovement()
     {
