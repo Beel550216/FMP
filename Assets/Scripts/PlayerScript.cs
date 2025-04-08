@@ -33,15 +33,17 @@ public class PlayerScript : MonoBehaviour
             Dance();
         }
 
-        if (SceneManager.GetActiveScene().name == "Minigame 1")
+        if (SceneManager.GetActiveScene().name == "Maze")
         {
+            anim.SetBool("idle", true);
+            Animate(1);
             Movement();
         }
     }
 
 
     void Movement()
-    {
+    {  
         //isGrounded
 
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -78,7 +80,7 @@ public class PlayerScript : MonoBehaviour
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 
-        if (Input.GetKey(KeyCode.W))
+        /*if (Input.GetKey(KeyCode.W))
         {
 
         }
@@ -93,7 +95,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
 
-        }
+        }*/
     }
 
 

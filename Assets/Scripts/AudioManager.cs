@@ -9,8 +9,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     [SerializeField] AudioMixer mixer;
 
-    [SerializeField] AudioSource audienceSource;
-    [SerializeField] List<AudioClip> audienceClips = new List<AudioClip>();
+    [SerializeField] AudioSource sfxSource;
+    [SerializeField] AudioSource backgroundSource;
+    [SerializeField] List<AudioClip> sfxClips = new List<AudioClip>();
     
 
     public const string Music_Key = "musicVolume";
@@ -34,10 +35,15 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void AudienceSFX()
+    void Start()
     {
-        AudioClip clip = audienceClips[0];
-        audienceSource.PlayOneShot(clip);
+        backgroundSource.Play();
+    }
+
+    public void playSFX(int num)
+    {
+        AudioClip clip = sfxClips[num];
+        sfxSource.PlayOneShot(clip);
     }
 
 
