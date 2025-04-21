@@ -1,5 +1,5 @@
 using UnityEngine;
- using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
@@ -54,7 +54,7 @@ public class LevelManager : MonoBehaviour
         SceneCheck();
 
         List();
-        print(speech[1] + "- test");
+        //print(speech[1] + "- test");
     }
     
 
