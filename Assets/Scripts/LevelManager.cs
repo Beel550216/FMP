@@ -29,11 +29,12 @@ public class LevelManager : MonoBehaviour
     public TMP_Text pointsText;
     public TMP_Text totalPointsText;
 
-    public int action;
-    public int playerAction;
+    private int action;          //
+    private int playerAction;    //
 
-    public float randomPose;
+    private float randomPose;    //
 
+    public int sceneCount = 0;
 
     public int pointsTotal = 0;
     int discoPoints = 0;
@@ -112,6 +113,11 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    public void SceneCounter()
+    {
+        sceneCount++;
+        print("There have been " + sceneCount + " scenes");
+    }
 
 
     void CutsceneList(int num)

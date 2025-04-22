@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public Transform Cam;
 
-    //public Animator anim;
+    public Animator anim;
 
     public float speed = 5f;
 
@@ -21,8 +21,9 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    public GameObject endScreen;
 
-   bool isGrounded;
+    bool isGrounded;
 
     private void Start()
     {
@@ -33,8 +34,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         speed = 5f;
-        //anim = GetComponent<Animator>();    
-        //Animate(1);
 
         Movement();
         //print("velocity y=" + playerVelocity.y);
@@ -76,6 +75,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
+            //anim.SetBool("walk", true);
+
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 speed = 9f;
@@ -85,11 +86,11 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                speed = 5f;
+                speed = 4f;
             }
 
-            //Animate(2);
             
+
 
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -99,5 +100,25 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
     }
-    
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("coin"))
+        {
+            print("Colided");
+
+            if (hit.gameObject.activeSelf == false)
+            {
+                print("!");
+            }
+
+            if (hit.gameObject.activeSelf == true)
+            {
+                hit.gameObject.SetActive(false);
+            }
+
+            endScreen.SetActive(true);
+}
+    }
+
 }

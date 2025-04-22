@@ -9,7 +9,6 @@ public class PlayerScript : MonoBehaviour
     public Animator anim;
     public GameObject playerActions;
     public TMP_Text playerActionText;
-    public GameObject coin;
 
     //public float buttonNumber = 1f;
     void Start()
@@ -124,24 +123,6 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("walk", true);
         }
 
-    }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.gameObject.tag == "coin")
-        {
-            print("Colided");
-            
-            if (coin.gameObject.activeSelf == false)
-            {
-                print("!");
-            }
-
-            if (coin.gameObject.activeSelf == true)
-            {
-                coin.SetActive(false);
-            }
-        }
     }
 
     }
