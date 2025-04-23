@@ -22,13 +22,19 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     public GameObject endScreen;
+    public GameObject playerModel;
 
     bool isGrounded;
+
+    public PlayerScript pScript;
 
     private void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
         //anim = GetComponent<Animator>();
+
+         pScript = GameObject.Find("player Variant 1").GetComponent<PlayerScript>();
+
     }
 
     void Update()
@@ -41,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
               
     void Movement()
     {
+        pScript.Animate(7);
         //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         isGrounded = controller.isGrounded;
         print("Grounded");
@@ -76,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         if (direction.magnitude >= 0.1f)
         {
             //anim.SetBool("walk", true);
+           
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -89,8 +97,7 @@ public class PlayerMovement : MonoBehaviour
                 speed = 4f;
             }
 
-            
-
+            pScript.Animate(6);
 
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);

@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
 
     private float randomPose;    //
 
-    public int sceneCount = 0;
+    public int sceneCount;
 
     public int pointsTotal = 0;
     int discoPoints = 0;
@@ -113,9 +113,9 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public void SceneCounter()
+    public void SceneCounter(int num)
     {
-        sceneCount++;
+        sceneCount = num;
         print("There have been " + sceneCount + " scenes");
     }
 

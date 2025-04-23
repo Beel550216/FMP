@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
-
     public Animator anim;
     public GameObject playerActions;
     public TMP_Text playerActionText;
@@ -29,6 +28,11 @@ public class PlayerScript : MonoBehaviour
         {
             anim.SetBool("maze", true);
             //Animate(1);
+
+            /*if (Message = "walk")
+            {
+                Animate(6);
+            }*/
         }
     }
 
@@ -85,7 +89,7 @@ public class PlayerScript : MonoBehaviour
 
 
 
-    void Animate(int num)
+    public void Animate(int num)
     {
         if (num == 1)
         {
@@ -122,6 +126,11 @@ public class PlayerScript : MonoBehaviour
         {
             anim.SetBool("walk", true);
         }
+        if (num == 7)
+        {
+            anim.SetBool("walk", false);
+        }
+
 
     }
 

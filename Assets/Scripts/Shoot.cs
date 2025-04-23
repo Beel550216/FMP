@@ -34,6 +34,7 @@ public class Shoot : MonoBehaviour
 
 
             //shootingAudio.PlayOneShot(shootingSound, 1.0f);
+            print("shoot");
         }
 
 
