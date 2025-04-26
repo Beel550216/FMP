@@ -46,6 +46,9 @@ public class LevelManager : MonoBehaviour
 
     string[] speech;
     public string speechText;
+
+    [SerializeField] List<GameObject> targetSets = new List<GameObject>();
+    public int targetCount = 0;
     //List<string> speech = new List<string>();
 
 
@@ -465,6 +468,15 @@ public class LevelManager : MonoBehaviour
         
 
     }
+
+    public void nextTargets()
+    {
+        GameObject target = targetSets[targetCount];
+        target.SetActive(true);
+        print("Loaded targets: " + targetCount);
+    }
+
+
 
     void CameraMovement()
     {

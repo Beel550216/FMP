@@ -12,7 +12,7 @@ public class Shoot : MonoBehaviour
     public AudioClip shootingSound;
     private AudioSource shootingAudio;
 
-    private Vector3 target;
+    private Vector3 target;           //
     void Start()
     {
         //Cursor.visible = false;
@@ -24,13 +24,13 @@ public class Shoot : MonoBehaviour
     {
 
         
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             GameObject arrow = Instantiate(arrowPrefab, bowEnd.transform.position, Quaternion.identity);
-            arrow.transform.LookAt(target);
+            //arrow.transform.LookAt(target);
 
             Rigidbody rb = arrow.GetComponent<Rigidbody>();
-            rb.linearVelocity = transform.forward * 15;
+            rb.linearVelocity = transform.forward * 10;
 
 
             //shootingAudio.PlayOneShot(shootingSound, 1.0f);

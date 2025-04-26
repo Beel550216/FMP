@@ -12,6 +12,7 @@ TagManager:
   - message 1
   - message 2
   - message 3
+  - arrow
   layers:
   - Default
   - TransparentFX
