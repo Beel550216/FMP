@@ -4089,6 +4089,7 @@ MonoBehaviour:
   round: 0
   speechText: 
   targetSets: []
+  targetCount: 0
 --- !u!4 &948287370
 Transform:
   m_ObjectHideFlags: 0
@@ -7947,8 +7948,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8467157535669436035, guid: 75e74565d4febb04f89d7d1dd1c42a2d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 58ab420afae68d24893ae6ac6952c0ba, type: 3}
-  m_Resource: {fileID: 8300000, guid: 58ab420afae68d24893ae6ac6952c0ba, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a2a81c019718cec40b1f2aea2dd06767, type: 3}
+  m_Resource: {fileID: 8300000, guid: a2a81c019718cec40b1f2aea2dd06767, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
