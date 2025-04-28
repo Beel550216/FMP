@@ -9721,7 +9721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.283862, g: 0.09611963, b: 0.4528302, a: 0.09019608}
+  m_Color: {r: 0.283862, g: 0.09611963, b: 0.4528302, a: 0.11372549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17719,6 +17719,8 @@ MonoBehaviour:
   pointsTotal: 0
   round: 0
   speechText: 
+  targetSets: []
+  targetCount: 0
 --- !u!4 &1763938757
 Transform:
   m_ObjectHideFlags: 0

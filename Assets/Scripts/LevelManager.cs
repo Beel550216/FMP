@@ -458,7 +458,6 @@ public class LevelManager : MonoBehaviour
             counter = 5;
             instructions.SetActive(false);
             EndScreen.SetActive(true);
-            next.SetActive(true);
 
             pointsTotal = pointsTotal + discoPoints;
 
