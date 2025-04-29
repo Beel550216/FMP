@@ -233,6 +233,7 @@ public class LevelManager : MonoBehaviour
             print("skip pressed");
             skip.SetActive(false);
             next.SetActive(true);
+            back.SetActive(true);
             counter = 12;
             camCount = 16;
         }

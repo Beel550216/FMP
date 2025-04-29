@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerScript pScript;
 
-    private void Start()
+    void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
         //anim = GetComponent<Animator>();
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        speed = 5f;
+        speed = 3f;
 
         Movement();
         //print("velocity y=" + playerVelocity.y);
@@ -88,14 +88,14 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                speed = 9f;
+                speed = 5f;
 
                 //Animate(3);
                 
             }
             else
             {
-                speed = 4f;
+                speed = 3f;
             }
 
             pScript.Animate(6);

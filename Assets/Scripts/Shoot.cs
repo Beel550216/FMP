@@ -1,13 +1,18 @@
+using System;
 using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    public Animator anim;
+
     public GameObject bow;
     public GameObject bowEnd;
     public GameObject player;
     public GameObject arrowPrefab;
 
     public Transform shootPoint;
+
+    public AudioManager AudioM;
 
     public AudioClip shootingSound;
     private AudioSource shootingAudio;
@@ -17,20 +22,28 @@ public class Shoot : MonoBehaviour
     {
         //Cursor.visible = false;
         shootingAudio = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
+
+        AudioM = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
     }
 
 
     void Update()
     {
+        anim.SetBool("shoot", false);
 
-        
+
         if (Input.GetKeyDown(KeyCode.X))
         {
-            GameObject arrow = Instantiate(arrowPrefab, bowEnd.transform.position, Quaternion.identity);
+            anim.SetBool("shoot", true);
+
+            AudioM.playSFX(1);
+
+            GameObject arrow = Instantiate(arrowPrefab, bowEnd.transform.position, transform.rotation);
             //arrow.transform.LookAt(target);
 
             Rigidbody rb = arrow.GetComponent<Rigidbody>();
-            rb.linearVelocity = transform.forward * 10;
+            rb.linearVelocity = arrow.transform.forward * 20;
 
 
             //shootingAudio.PlayOneShot(shootingSound, 1.0f);
