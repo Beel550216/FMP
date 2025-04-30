@@ -18,17 +18,25 @@ public class target : MonoBehaviour
     {
         if (other.gameObject.CompareTag("arrow"))
         {
-            print("Colided");
+            if(gameObject.tag == "target")
+            {  
+                print("Colided");
 
+                if (gameObject.activeSelf == true)
+                {
+                    gameObject.SetActive(false);
+                }
 
-            if (gameObject.activeSelf == true)
-            {
-                gameObject.SetActive(false);
             }
-
+            else
+            {
+                print("missed");
+                Destroy(other.gameObject);
+            }
+            
         }
 
-        if (gameObject.activeSelf == false && target1.activeSelf == false)      //&& target2.activeSelf == false
+        if (gameObject.activeSelf == false && target1.activeSelf == false && target2.activeSelf == false)      //&& target2.activeSelf == false
         {
             LM.targetCount = targetNum;
             LM.nextTargets();

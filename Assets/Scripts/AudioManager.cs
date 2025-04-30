@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
+        /*if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
         {
             print("do destroy");
             Destroy(gameObject);
-        }
+        }*/
 
         LoadVolume();
 

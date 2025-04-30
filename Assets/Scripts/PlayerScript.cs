@@ -12,7 +12,11 @@ public class PlayerScript : MonoBehaviour
     //public float buttonNumber = 1f;
     void Start()
     {
-        anim = GetComponent<Animator>();
+        if (SceneManager.GetActiveScene().name != "Target Practice")
+        {
+            anim.SetBool("maze", true);
+            anim = GetComponent<Animator>();
+        }
     }
 
     void Update()
@@ -24,16 +28,6 @@ public class PlayerScript : MonoBehaviour
             Dance();
         }
 
-        if (SceneManager.GetActiveScene().name == "Maze")
-        {
-            anim.SetBool("maze", true);
-            //Animate(1);
-
-            /*if (Message = "walk")
-            {
-                Animate(6);
-            }*/
-        }
     }
 
 
