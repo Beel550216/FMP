@@ -2145,6 +2145,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1667227504}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &226318017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2258,6 +2270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bf7efc1429266478254dd1233b2556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pT: {fileID: 0}
   anim: {fileID: 0}
   playerAnim: {fileID: 0}
   counter: 0
@@ -2278,7 +2291,6 @@ MonoBehaviour:
   pointsText: {fileID: 0}
   totalPointsText: {fileID: 0}
   sceneCount: 0
-  pointsTotal: 0
   round: 0
   speechText: 
   targetSets:
@@ -2876,6 +2888,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!1001 &332753835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3207,6 +3220,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!1 &370048217
 GameObject:
   m_ObjectHideFlags: 0
@@ -3559,6 +3573,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1667227504}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5089,6 +5115,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!1 &677486924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1208871959118300, guid: e0d3f8289f60e1e49a5d66d5eb8582f3, type: 3}
@@ -5418,6 +5445,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!1 &731095869 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4061099605358898015, guid: ba84e5e3f998ce240b7bdd3e6062c86c, type: 3}
@@ -5439,6 +5467,18 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
+--- !u!114 &735201516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 510805963341162574, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+  m_PrefabInstance: {fileID: 1909286138}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8efe0465b9aa5499bb80addd25e81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &747964550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5627,6 +5667,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 735201516}
+        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
+        m_MethodName: Resetpoints
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1667227504}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &755745719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5764,6 +5828,7 @@ GameObject:
   - component: {fileID: 805280776}
   - component: {fileID: 805280775}
   - component: {fileID: 805280778}
+  - component: {fileID: 805280779}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5869,7 +5934,7 @@ AudioSource:
   m_GameObject: {fileID: 805280773}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8467157535669436035, guid: 75e74565d4febb04f89d7d1dd1c42a2d, type: 2}
   m_audioClip: {fileID: 8300000, guid: 371cf3d9a008d9943a44b33588ffc6f1, type: 3}
   m_Resource: {fileID: 8300000, guid: 371cf3d9a008d9943a44b33588ffc6f1, type: 3}
   m_PlayOnAwake: 1
@@ -5957,6 +6022,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &805280779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805280773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c3f6dbc43025c42b9f640d12aaa47c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 75e74565d4febb04f89d7d1dd1c42a2d, type: 2}
+  musicSlider: {fileID: 165909114}
+  sfxSlider: {fileID: 1664018611}
 --- !u!1 &812697190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1208871959118300, guid: e0d3f8289f60e1e49a5d66d5eb8582f3, type: 3}
@@ -5978,6 +6058,7 @@ MonoBehaviour:
   target2: {fileID: 1911166881}
   LM: {fileID: 263672622}
   targetNum: 6
+  pT: {fileID: 0}
 --- !u!1001 &813243606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6394,6 +6475,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!4 &904101053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4047503882683654, guid: e0d3f8289f60e1e49a5d66d5eb8582f3, type: 3}
@@ -6415,6 +6497,7 @@ MonoBehaviour:
   target2: {fileID: 812697190}
   LM: {fileID: 263672622}
   targetNum: 6
+  pT: {fileID: 0}
 --- !u!4 &905613870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4321709845090748, guid: 39dfb394e864da84db3b1c7e8f517888, type: 3}
@@ -6975,6 +7058,7 @@ MonoBehaviour:
   target2: {fileID: 1790917841}
   LM: {fileID: 263672622}
   targetNum: 1
+  pT: {fileID: 0}
 --- !u!1 &1060155213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1208871959118300, guid: e0d3f8289f60e1e49a5d66d5eb8582f3, type: 3}
@@ -6996,6 +7080,7 @@ MonoBehaviour:
   target2: {fileID: 687678661}
   LM: {fileID: 263672622}
   targetNum: 2
+  pT: {fileID: 0}
 --- !u!1 &1071666817
 GameObject:
   m_ObjectHideFlags: 0
@@ -7533,9 +7618,10 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 128
-  endScreen: {fileID: 0}
   playerModel: {fileID: 8140223080981219564}
   pScript: {fileID: 8140223080981219565}
+  pT: {fileID: 0}
+  LM: {fileID: 0}
 --- !u!4 &1169110098
 Transform:
   m_ObjectHideFlags: 0
@@ -8385,6 +8471,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!1 &1301915007 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5526471247686275674, guid: ba84e5e3f998ce240b7bdd3e6062c86c, type: 3}
@@ -8497,6 +8584,7 @@ MonoBehaviour:
   target2: {fileID: 1855423415}
   LM: {fileID: 263672622}
   targetNum: 4
+  pT: {fileID: 0}
 --- !u!1 &1351871366
 GameObject:
   m_ObjectHideFlags: 0
@@ -8596,6 +8684,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1667227504}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8890,6 +8990,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!1 &1410051903
 GameObject:
   m_ObjectHideFlags: 0
@@ -9047,6 +9148,7 @@ MonoBehaviour:
   target2: {fileID: 1343927501}
   LM: {fileID: 263672622}
   targetNum: 4
+  pT: {fileID: 0}
 --- !u!1 &1417698239
 GameObject:
   m_ObjectHideFlags: 0
@@ -9547,6 +9649,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!1001 &1498212411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9874,6 +9977,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!1001 &1536843012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10033,6 +10137,7 @@ MonoBehaviour:
   target2: {fileID: 244864477}
   LM: {fileID: 263672622}
   targetNum: 3
+  pT: {fileID: 0}
 --- !u!1 &1590074840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2323047495451454934, guid: ba84e5e3f998ce240b7bdd3e6062c86c, type: 3}
@@ -10054,6 +10159,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!4 &1600220240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4124369588495422, guid: a76742b3f592d834ca1e03ad08301998, type: 3}
@@ -10158,6 +10264,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1667227504}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10291,6 +10409,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1667227504}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10494,6 +10624,7 @@ MonoBehaviour:
   target2: {fileID: 241606116}
   LM: {fileID: 263672622}
   targetNum: 5
+  pT: {fileID: 0}
 --- !u!4 &1620068564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4756262757966062, guid: 1ce022d65e1e7b84d9e5ae4a479c39ba, type: 3}
@@ -10656,6 +10787,7 @@ MonoBehaviour:
   target2: {fileID: 1678228154}
   LM: {fileID: 263672622}
   targetNum: 2
+  pT: {fileID: 0}
 --- !u!1 &1664018609
 GameObject:
   m_ObjectHideFlags: 0
@@ -10784,6 +10916,7 @@ MonoBehaviour:
   target2: {fileID: 1449199540}
   LM: {fileID: 263672622}
   targetNum: 5
+  pT: {fileID: 0}
 --- !u!1 &1671823330
 GameObject:
   m_ObjectHideFlags: 0
@@ -10891,6 +11024,30 @@ MonoBehaviour:
           m_StringArgument: Menu
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1667227504}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 735201516}
+        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
+        m_MethodName: Resetpoints
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1671823333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10945,6 +11102,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!1 &1678228154 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1208871959118300, guid: e0d3f8289f60e1e49a5d66d5eb8582f3, type: 3}
@@ -10966,6 +11124,7 @@ MonoBehaviour:
   target2: {fileID: 687678661}
   LM: {fileID: 263672622}
   targetNum: 2
+  pT: {fileID: 0}
 --- !u!1001 &1729719880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11749,6 +11908,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!4 &1784259235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 221116569159967962, guid: 0be0be5beaf680e42a1390a77fa897b4, type: 3}
@@ -12036,6 +12196,7 @@ MonoBehaviour:
   target2: {fileID: 1556145538}
   LM: {fileID: 263672622}
   targetNum: 3
+  pT: {fileID: 0}
 --- !u!1001 &1826741545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12223,6 +12384,7 @@ MonoBehaviour:
   target2: {fileID: 1449199540}
   LM: {fileID: 263672622}
   targetNum: 5
+  pT: {fileID: 0}
 --- !u!1 &1855423415 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1208871959118300, guid: e0d3f8289f60e1e49a5d66d5eb8582f3, type: 3}
@@ -12249,6 +12411,64 @@ MonoBehaviour:
   target2: {fileID: 1556145538}
   LM: {fileID: 263672622}
   targetNum: 3
+  pT: {fileID: 0}
+--- !u!1001 &1909286138
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -41.156563
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.61399996
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.8169999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754672716991083784, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_Name
+      value: Points tracker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
 --- !u!1 &1911166881 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1208871959118300, guid: e0d3f8289f60e1e49a5d66d5eb8582f3, type: 3}
@@ -12270,6 +12490,7 @@ MonoBehaviour:
   target2: {fileID: 812697190}
   LM: {fileID: 263672622}
   targetNum: 6
+  pT: {fileID: 0}
 --- !u!1001 &1915994382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12441,6 +12662,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1667227504}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 601497909}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -12512,6 +12745,7 @@ MonoBehaviour:
   target2: {fileID: 636682773}
   LM: {fileID: 263672622}
   targetNum: 1
+  pT: {fileID: 0}
 --- !u!1 &1927750345
 GameObject:
   m_ObjectHideFlags: 0
@@ -12943,6 +13177,7 @@ MonoBehaviour:
   target2: {fileID: 636682773}
   LM: {fileID: 263672622}
   targetNum: 1
+  pT: {fileID: 0}
 --- !u!4 &2007088211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4423381248071784, guid: 097c26aede8f73e41a32d546bd00e97f, type: 3}
@@ -13299,6 +13534,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!4 &2059612098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4756262757966062, guid: 1ce022d65e1e7b84d9e5ae4a479c39ba, type: 3}
@@ -13656,6 +13892,7 @@ MonoBehaviour:
   target2: {fileID: 1343927501}
   LM: {fileID: 263672622}
   targetNum: 4
+  pT: {fileID: 0}
 --- !u!114 &2106005181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13672,6 +13909,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!1001 &2113446142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13769,6 +14007,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!4 &2118196540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4748624645171214, guid: 56edbd376562e9544ab88753fd3c4682, type: 3}
@@ -13943,6 +14182,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1667227504}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: playSFX
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 226318014}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -14014,6 +14265,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!114 &2134698642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14030,6 +14282,7 @@ MonoBehaviour:
   target2: {fileID: 0}
   LM: {fileID: 0}
   targetNum: 0
+  pT: {fileID: 0}
 --- !u!4 &2135053523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4756262757966062, guid: 1ce022d65e1e7b84d9e5ae4a479c39ba, type: 3}
@@ -19971,3 +20224,4 @@ SceneRoots:
   - {fileID: 263672623}
   - {fileID: 1169110098}
   - {fileID: 2075887642}
+  - {fileID: 1909286138}

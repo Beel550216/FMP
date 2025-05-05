@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
 
+    public PointsTracker pT;
+
     public Animator anim;
     public Animator playerAnim;
     public int counter;
@@ -16,6 +18,7 @@ public class LevelManager : MonoBehaviour
     public GameObject next;
     public GameObject back;
     public GameObject skip;
+    public GameObject yes;
     public GameObject nextGame;
     public GameObject instructions;
     public GameObject playerActions;
@@ -36,8 +39,6 @@ public class LevelManager : MonoBehaviour
 
     public int sceneCount;
 
-    public int pointsTotal = 0;
-    int discoPoints = 0;
     public int round = 0;
 
     Vector3[] cameraPos;
@@ -54,11 +55,11 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        pT = GameObject.Find("Points tracker").GetComponent<PointsTracker>();
         CameraMovement();
         SceneCheck();
 
         List();
-        //print(speech[1] + "- test");
     }
     
 
@@ -133,7 +134,7 @@ public class LevelManager : MonoBehaviour
         TextBox(counter);
 
 
-        if (num == 2)
+        if (num == 2 || num == 10)
         {
             back.SetActive(true);
         }
@@ -151,6 +152,17 @@ public class LevelManager : MonoBehaviour
         if (num == 5)
         {
             print("working");                    //
+        }
+
+        if (num == 9)
+        {
+            back.SetActive(false);  
+        }
+        if (num == 13)
+        {
+            back.SetActive(false);
+            next.SetActive(false);
+            yes.SetActive(true);
         }
 
     }
@@ -308,8 +320,7 @@ public class LevelManager : MonoBehaviour
                     {
                         WellDone();
                         instructionText.text = "Correct!";
-                        discoPoints = discoPoints + 10;
-                        print("Points for this minigame = " + discoPoints);
+                        pT.AddPoints(10);
 
                         //Animate(0);
 
@@ -319,11 +330,6 @@ public class LevelManager : MonoBehaviour
                     KeyCheck();
 
                 }
-                /*if (round == 7)
-                {
-                    instructionText.text = instructionText.text + " Well done!";
-                }*/ // -error
-                //print("running");
 
                 EndOfRound();
 
@@ -447,12 +453,13 @@ public class LevelManager : MonoBehaviour
         roundNumberText.text = roundNumber;
     }
 
-    void EndOfRound()
+    public void EndOfRound()
     {
         if (round == 7)
         {
             instructionText.text = " Well done!";
             
+            Animate(0);
             anim.SetBool("check", false);
             anim.SetBool("clap", true);
             
@@ -460,10 +467,18 @@ public class LevelManager : MonoBehaviour
             instructions.SetActive(false);
             EndScreen.SetActive(true);
 
-            pointsTotal = pointsTotal + discoPoints;
+            pT.EndRound();
 
-            pointsText.text = discoPoints.ToString();
-            totalPointsText.text = pointsTotal.ToString();
+            pointsText.text = pT.points.ToString();
+            totalPointsText.text = pT.savedPoints.ToString();
+        }
+        if(SceneManager.GetActiveScene().name == "Maze")
+        {
+            EndScreen.SetActive(true);
+            pT.EndRound();
+
+            pointsText.text = pT.points.ToString();
+            totalPointsText.text = pT.savedPoints.ToString();
         }
         
 
@@ -544,36 +559,5 @@ public class LevelManager : MonoBehaviour
         cam.transform.rotation = Quaternion.Euler(cameraRot[index].x, cameraRot[index].y, cameraRot[index].z);
         print("Camera to index " + index);
     }
-    
 
-
-    
-    
-    
-    /* void Awake()
-     {
-         if (instance == null)
-         {
-             instance = this;
-             DontDestroyOnLoad(gameObject);
-             print("do not destroy");
-         }
-         else
-         {
-             print("do destroy");
-             Destroy(gameObject);
-         }
-
-     }*/
-    
-    
-    /*List<CutsceneMethod> cutscenePart = new List<CutsceneMethod>();
-                                                                         //cutscene divided into parts.
-        cutscenePart.Add(CutscenePart1);
-        cutscenePart.Add(CutscenePart2);
-        /*cutscenePart.Add(CutscenePart3);
-        cutscenePart.Add(CutscenePart4);
-        cutscenePart.Add(CutscenePart5);
-        cutscenePart.Add(CutscenePart6);
-        cutscenePart.Add(CutscenePart7);*/
 }

@@ -9,9 +9,12 @@ public class target : MonoBehaviour
     public LevelManager LM;
     public int targetNum;
 
+    public PointsTracker pT;
+
     public void Start()
     {
         LM = GameObject.Find("Level Manager").GetComponent<LevelManager>();
+        pT = GameObject.Find("Points tracker").GetComponent<PointsTracker>();
     }
 
      void OnCollisionEnter(Collision other)
@@ -25,12 +28,12 @@ public class target : MonoBehaviour
                 if (gameObject.activeSelf == true)
                 {
                     gameObject.SetActive(false);
+                    pT.AddPoints(10);
                 }
 
             }
             else
             {
-                print("missed");
                 Destroy(other.gameObject);
             }
             

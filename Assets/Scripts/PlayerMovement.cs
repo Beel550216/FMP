@@ -20,20 +20,20 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-
-    public GameObject endScreen;
     public GameObject playerModel;
 
     bool isGrounded;
 
     public PlayerScript pScript;
+    public PointsTracker pT;
+    public LevelManager LM;
 
     void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
-        //anim = GetComponent<Animator>();
-
-         pScript = GameObject.Find("player Variant 1").GetComponent<PlayerScript>();
+        pScript = GameObject.Find("player Variant 1").GetComponent<PlayerScript>();
+        pT = GameObject.Find("Points tracker").GetComponent<PointsTracker>();
+        LM = GameObject.Find("Level Manager").GetComponent<LevelManager>();
 
     }
 
@@ -114,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
         if (hit.gameObject.CompareTag("coin"))
         {
             print("Colided");
+            pT.AddPoints(100);
 
             if (hit.gameObject.activeSelf == false)
             {
@@ -124,9 +125,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 hit.gameObject.SetActive(false);
             }
-
-            endScreen.SetActive(true);
-}
+            LM.EndOfRound();
+        }
     }
 
 }
