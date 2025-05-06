@@ -21,7 +21,7 @@ public class target : MonoBehaviour
     {
         if (other.gameObject.CompareTag("arrow"))
         {
-            if(gameObject.tag == "target")
+            if(gameObject.tag == "target" || gameObject.tag == "target6")
             {  
                 print("Colided");
 
@@ -41,8 +41,16 @@ public class target : MonoBehaviour
 
         if (gameObject.activeSelf == false && target1.activeSelf == false && target2.activeSelf == false)      //&& target2.activeSelf == false
         {
-            LM.targetCount = targetNum;
-            LM.nextTargets();
+            if (gameObject.tag == "target6")
+            {
+                LM.EndOfRound();
+            }
+            else
+            {
+                LM.targetCount = targetNum;
+                LM.nextTargets();
+            }
+
         }
     }
 

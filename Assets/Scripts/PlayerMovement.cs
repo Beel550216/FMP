@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        speed = 3f;
+        speed = 1.8f;
 
         Movement();
         //print("velocity y=" + playerVelocity.y);
@@ -88,14 +88,14 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                speed = 5f;
+                speed = 3f;
 
                 //Animate(3);
                 
             }
             else
             {
-                speed = 3f;
+                speed = 1.8f;
             }
 
             pScript.Animate(6);

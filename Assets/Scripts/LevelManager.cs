@@ -472,7 +472,7 @@ public class LevelManager : MonoBehaviour
             pointsText.text = pT.points.ToString();
             totalPointsText.text = pT.savedPoints.ToString();
         }
-        if(SceneManager.GetActiveScene().name == "Maze")
+        if(SceneManager.GetActiveScene().name == "Maze" || SceneManager.GetActiveScene().name == "Target Practice")
         {
             EndScreen.SetActive(true);
             pT.EndRound();
@@ -480,7 +480,7 @@ public class LevelManager : MonoBehaviour
             pointsText.text = pT.points.ToString();
             totalPointsText.text = pT.savedPoints.ToString();
         }
-        
+
 
     }
 
@@ -518,9 +518,11 @@ public class LevelManager : MonoBehaviour
             new Vector3(0.433f, 10.708f, -12.355f),
 
             new Vector3(0.784f, 10.708f, -15.641f),
-            new Vector3(0.784f, 10.708f, -15.641f)
+            new Vector3(0.784f, 10.708f, -15.641f),
             //new Vector3(3.754f, 10.366f, -14.728f),
 
+           new Vector3(-3.63f, 4.18f, -13.88f),
+           new Vector3(-3.63f, 4.18f, -17.44f),
 
         };
 
@@ -549,7 +551,8 @@ public class LevelManager : MonoBehaviour
             new Vector3(0f, 67.794f, 0f),
 
             //new Vector3(0f, 42.915f, 0f),
-
+            new Vector3(5.259f, 0f, 0f),   //  18 - archery scene
+            new Vector3(5.259f, 0f, 0f),
         };
     }
     public void MoveCamera(int index)
