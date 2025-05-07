@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 playerVelocity;
 
-    float gravity = -9.8f;
+    float gravity = -20.8f;
+
+    public float jumpHeight = 2.0f;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -73,7 +76,12 @@ public class PlayerMovement : MonoBehaviour
             print("not grounded");
         }
 
-        
+
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+        }
         
         playerVelocity.y += gravity * Time.deltaTime;
 
@@ -89,13 +97,19 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 speed = 3f;
-
                 //Animate(3);
-                
             }
             else
             {
-                speed = 1.8f;
+                if (SceneManager.GetActiveScene().name == "Target Practice")
+                {
+                    speed = 4f;
+                }
+                else
+                {
+                   speed = 1.8f;
+                }
+                
             }
 
             pScript.Animate(6);

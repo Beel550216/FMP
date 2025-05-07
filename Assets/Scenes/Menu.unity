@@ -1538,7 +1538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -37.5, y: 33.7}
+  m_AnchoredPosition: {x: -37.5, y: 34.4}
   m_SizeDelta: {x: 160, y: -80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &448150527
@@ -3701,7 +3701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -37.5, y: 3}
+  m_AnchoredPosition: {x: -37.5, y: -2.9}
   m_SizeDelta: {x: 160, y: -80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1259089023
@@ -4680,6 +4680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bf7efc1429266478254dd1233b2556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pT: {fileID: 0}
   anim: {fileID: 0}
   playerAnim: {fileID: 0}
   counter: 0
@@ -4688,6 +4689,7 @@ MonoBehaviour:
   next: {fileID: 0}
   back: {fileID: 0}
   skip: {fileID: 0}
+  yes: {fileID: 0}
   nextGame: {fileID: 0}
   instructions: {fileID: 0}
   playerActions: {fileID: 0}
@@ -4700,7 +4702,6 @@ MonoBehaviour:
   pointsText: {fileID: 0}
   totalPointsText: {fileID: 0}
   sceneCount: 0
-  pointsTotal: 0
   round: 0
   speechText: 
   targetSets: []
@@ -6779,6 +6780,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082655344}
   m_CullTransparentMesh: 1
+--- !u!1001 &2118109145
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -41.156563
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.61399996
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.8169999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350356938294841428, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3754672716991083784, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
+      propertyPath: m_Name
+      value: Points tracker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e85f4f78f71f1a246ae7bbd840129d11, type: 3}
 --- !u!4 &2128020992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4747378824121418, guid: ff94fd4f75738a242ad52c64aef886f0, type: 3}
@@ -8440,3 +8498,4 @@ SceneRoots:
   - {fileID: 138046989}
   - {fileID: 1657529029}
   - {fileID: 4225391871702580290}
+  - {fileID: 2118109145}
