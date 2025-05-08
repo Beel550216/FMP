@@ -55,4 +55,15 @@ public class PointsTracker : MonoBehaviour
         points = 0f;
         PlayerPrefs.SetFloat("savedPoints", 0f);
     }
+
+
+    /*public void Fullresetpoints()
+    {
+        points = 0f;
+        savedPoints = 0f;
+        PlayerPrefs.SetFloat("savedPoints", 1f);
+
+        print("Points = " + points);
+        print("savedPoints = " + savedPoints);
+    }*/
 }

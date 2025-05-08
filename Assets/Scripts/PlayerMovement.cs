@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && SceneManager.GetActiveScene().name == "Target Practice")
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
         }

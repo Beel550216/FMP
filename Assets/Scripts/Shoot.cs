@@ -33,7 +33,7 @@ public class Shoot : MonoBehaviour
         anim.SetBool("shoot", false);
 
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetMouseButtonDown(0))
         {
             anim.SetBool("shoot", true);
 

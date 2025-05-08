@@ -9893,7 +9893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.283862, g: 0.09611963, b: 0.4528302, a: 0.11372549}
+  m_Color: {r: 0.283862, g: 0.09611963, b: 0.4528302, a: 0.13333334}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17969,6 +17969,7 @@ MonoBehaviour:
   next: {fileID: 1800138808}
   back: {fileID: 584243844}
   skip: {fileID: 0}
+  yes: {fileID: 0}
   nextGame: {fileID: 0}
   instructions: {fileID: 890719896}
   playerActions: {fileID: 1919181688}
