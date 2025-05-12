@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PointsTracker : MonoBehaviour
@@ -6,8 +8,12 @@ public class PointsTracker : MonoBehaviour
     public float points;
     public float savedPoints = 0f;
 
+    public TMP_Text pointsText;
 
     public static PointsTracker instance;
+
+    [SerializeField] List<GameObject> triviaRounds = new List<GameObject>();
+    public int triviaRound = 0;
 
     void Awake()
     {
@@ -54,6 +60,23 @@ public class PointsTracker : MonoBehaviour
     {
         points = 0f;
         PlayerPrefs.SetFloat("savedPoints", 0f);
+    }
+
+    public void UpdateText()
+    {
+        string currentPoints = points.ToString();
+        pointsText.text = currentPoints;
+    }
+
+    public void Rounds()
+    {
+        GameObject questions = triviaRounds[triviaRound];
+
+
+        questions.SetActive(true);
+        print("Loaded Round: " + triviaRound);
+
+        triviaRound++;                                     //
     }
 
 

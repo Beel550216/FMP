@@ -58,7 +58,7 @@ public class LevelManager : MonoBehaviour
         pT = GameObject.Find("Points tracker").GetComponent<PointsTracker>();
         CameraMovement();
         SceneCheck();
-
+        
         List();
     }
     
@@ -158,7 +158,14 @@ public class LevelManager : MonoBehaviour
         {
             back.SetActive(false);  
         }
-        if (num == 13)
+        /*if (num == 13)
+        {
+            back.SetActive(false);
+            next.SetActive(false);
+            //yes.SetActive(true);
+        }*/
+
+        if (num == 17)
         {
             back.SetActive(false);
             next.SetActive(false);
@@ -206,8 +213,9 @@ public class LevelManager : MonoBehaviour
         {
             anim.SetBool("point", true);
         }
-        if (num == 9 || num == 10 || num == 11)
+        if (num == 9 || num == 10 || num == 11 || num == 14)
         {
+            anim.SetBool("start", false);
             anim.SetBool("look sideways", true);
         }
         if (num == 12)
@@ -219,6 +227,12 @@ public class LevelManager : MonoBehaviour
         {
             anim.SetBool("point", false);
             anim.SetBool("talk", false);
+        }
+
+        if (num >= 18 && num <= 25)
+        {
+            anim.SetBool("look sideways", false);
+            anim.SetBool("with paper", true);
         }
 
     }
@@ -249,6 +263,7 @@ public class LevelManager : MonoBehaviour
             counter = 12;
             camCount = 16;
         }
+
         print("counter = " + counter);
         CutsceneList(counter);
 
@@ -299,9 +314,25 @@ public class LevelManager : MonoBehaviour
             new string("The aim of the game is to collect as many points as you can"),
             new string("You can accumulate points through the minigame rounds!"),
             new string("There are 3 minigames today"),
-            new string("Okay..."),
+            //new string("Okay..."),
+            //new string("Are you ready to start?"),
+
+            new string("Before each minigame, there is a trivia round."),
+            new string("These questions will test your knowledge on all things 70s."),
+            new string("Each correct answer is worth 20 points."),
+            new string("The first trivia round is called 'Blockbuster'!"),
+            new string("This round is all about films"),
             new string("Are you ready to start?"),
 
+
+            new string("Welcome back!"),
+            new string(""),
+
+
+            new string("The next trivia round is called 'Vinyl Records'!"),
+            new string(""),
+            new string("This round is all about the record breaking songs and musicians of the 70s!"),
+            new string("Each correct answer adds 10 points to your score"),
         };
 
     }
@@ -493,6 +524,7 @@ public class LevelManager : MonoBehaviour
 
 
 
+
     void CameraMovement()
     {
         cameraPos = new[]
@@ -515,10 +547,24 @@ public class LevelManager : MonoBehaviour
             new Vector3(0.34f, 10.79f, -21.25f),
             new Vector3(0.27f, 10.79f, -11.329f),
             new Vector3(0.27f, 10.79f, -11.329f),
-            new Vector3(0.433f, 10.708f, -12.355f),
+            new Vector3(0.27f, 10.79f, -11.329f),
 
             new Vector3(0.784f, 10.708f, -15.641f),
             new Vector3(0.784f, 10.708f, -15.641f),
+
+            new Vector3(0.46f, 10.708f, -12.29f),
+            new Vector3(0.46f, 10.708f, -12.29f),
+            new Vector3(0.46f, 10.708f, -12.29f),
+            new Vector3(0.46f, 10.708f, -12.29f),
+
+            new Vector3(0.784f, 10.708f, -15.641f),
+            new Vector3(0.784f, 10.708f, -15.641f),
+            new Vector3(0.784f, 10.708f, -15.641f),
+            new Vector3(0.784f, 10.708f, -15.641f),
+            new Vector3(0.784f, 10.708f, -15.641f),
+            new Vector3(0.784f, 10.708f, -15.641f),
+
+
             //new Vector3(3.754f, 10.366f, -14.728f),
 
            new Vector3(-3.63f, 4.18f, -13.88f),
@@ -549,6 +595,16 @@ public class LevelManager : MonoBehaviour
             new Vector3(0f, 80.962f, 0f),
             new Vector3(0f, 67.794f, 0f),
             new Vector3(0f, 67.794f, 0f),
+
+            new Vector3(0f, 72.942f, 0f),
+            new Vector3(0f, 72.942f, 0f),
+            new Vector3(0f, 67.794f, 0f),
+            new Vector3(0f, 72.942f, 0f),
+            new Vector3(0f, 72.942f, 0f),
+            new Vector3(0f, 72.942f, 0f),
+            new Vector3(0f, 72.942f, 0f),
+            new Vector3(0f, 72.942f, 0f),
+            new Vector3(0f, 72.942f, 0f),
 
             //new Vector3(0f, 42.915f, 0f),
             new Vector3(5.259f, 0f, 0f),   //  18 - archery scene
