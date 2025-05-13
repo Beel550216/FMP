@@ -76,7 +76,7 @@ public class PointsTracker : MonoBehaviour
         questions.SetActive(true);
         print("Loaded Round: " + triviaRound);
 
-        triviaRound++;                                     //
+        //triviaRound++;                                     //
     }
 
 

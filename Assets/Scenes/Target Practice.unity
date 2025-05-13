@@ -6514,7 +6514,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 19
+          m_IntArgument: 27
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -16715,6 +16715,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5889469161486278681, guid: 6db3b8dd74a99be4e9e953ff35d546e8, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5001904108957290044, guid: 75e74565d4febb04f89d7d1dd1c42a2d, type: 2}
     - target: {fileID: 9142178731248472046, guid: 6db3b8dd74a99be4e9e953ff35d546e8, type: 3}
       propertyPath: m_Name
       value: Audio Manager

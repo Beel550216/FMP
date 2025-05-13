@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Analytics;
 
 public class LevelManager : MonoBehaviour
 {
@@ -50,6 +51,8 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] List<GameObject> targetSets = new List<GameObject>();
     public int targetCount = 0;
+
+    [SerializeField] List<GameObject> triviaRounds = new List<GameObject>();
     //List<string> speech = new List<string>();
 
 
@@ -88,9 +91,39 @@ public class LevelManager : MonoBehaviour
             print("Stage");
             playerAnim.SetBool("idle", true);
 
-            camCount = 9;
-            counter = 5;
-            CutsceneList(5);
+            print("Trivia round -" + pT.triviaRound);
+
+            if (pT.triviaRound <= 0)
+            {
+                camCount = 9;
+                counter = 5;
+                CutsceneList(5);
+            }
+            
+            if (pT.triviaRound == 1)
+            {
+                camCount = 9;
+                //textBox.SetActive(true);
+                counter = 20;
+                CutsceneList(5);
+
+            }
+
+            if (pT.triviaRound == 2)
+            {
+                camCount = 9;
+                //textBox.SetActive(true);
+                counter = 20;
+                CutsceneList(5);
+
+                camCount = 10;
+                //textBox.SetActive(true);
+                counter = 25;
+                CutsceneList(5);
+            }
+
+
+
 
         }
 
@@ -172,6 +205,28 @@ public class LevelManager : MonoBehaviour
             yes.SetActive(true);
         }
 
+        if (num == 20)
+        {
+            back.SetActive(false);
+            next.SetActive(false);
+            textBox.SetActive(false);
+
+            if (pT.triviaRound !<= 1)
+            {
+                nextGame.SetActive(true);
+            }
+            
+        }
+
+        if (num == 27)
+        {
+            //textBox.SetActive(false);
+            back.SetActive(false);
+            next.SetActive(false);
+            yes.SetActive(true);
+        }
+
+
     }
 
 
@@ -233,6 +288,23 @@ public class LevelManager : MonoBehaviour
         {
             anim.SetBool("look sideways", false);
             anim.SetBool("with paper", true);
+        }
+
+        if (num == 26)
+        {
+        }
+
+        if (num >= 28 && num <= 35)
+        {
+            anim.SetBool("start", true);
+            anim.SetBool("talk", false);
+            anim.SetBool("look sideways", false);
+            anim.SetBool("with paper", true);
+        }
+
+        if (num == 36)
+        {
+            anim.SetBool("talk", true);
         }
 
     }
@@ -324,15 +396,30 @@ public class LevelManager : MonoBehaviour
             new string("This round is all about films"),
             new string("Are you ready to start?"),
 
+            new string("Well done"),
+            new string("Now it's time for the first minigame!"),
+            new string("Let's test your shooting skills in archery."),
 
             new string("Welcome back!"),
-            new string(""),
-
+            new string("You took a while in that game..."),
+            new string("You took your time in that game..."),
 
             new string("The next trivia round is called 'Vinyl Records'!"),
             new string(""),
             new string("This round is all about the record breaking songs and musicians of the 70s!"),
-            new string("Each correct answer adds 10 points to your score"),
+            new string("Each correct answer adds 20 points to your score"),
+
+            new string("Okay, now it's onto the next minigame!"),
+            new string("This minigame takes place at a busy festival, so try not to get lost..."),    // add in a joke or something. Idk. Like "I hope you remembered your tickets or something alluding to the item becoming lost).
+            
+            
+            new string("You found the !"),
+            new string("Don't lose it again"),
+            new string("We are over halfway through todays show."),
+            new string("Soon our contestant will go up against our professional dancer"),
+            new string("But before that, it's time for our final trivia round..."),
+            new string("'That's life'"),
+            new string("This round is a culture round about life in the 70s"),
         };
 
     }
@@ -522,6 +609,35 @@ public class LevelManager : MonoBehaviour
         print("Loaded targets: " + targetCount);
     }
 
+    public void LoadRound()
+    {
+        GameObject questions = triviaRounds[pT.triviaRound];
+
+
+        questions.SetActive(true);
+        print("Loaded Round: " + pT.triviaRound);
+
+        pT.triviaRound++;
+    }
+
+    public void NextScene()
+    {
+        print("trivia round " + pT.triviaRound);
+
+        if (pT.triviaRound <= 1)
+        {
+            LoadSceneName("Target Practice");
+        }
+        if (pT.triviaRound == 2)
+        {
+            LoadSceneName("Maze");
+        }
+        if (pT.triviaRound == 3)
+        {
+            LoadSceneName("Night fever");
+        }
+    }
+
 
 
 
@@ -559,16 +675,13 @@ public class LevelManager : MonoBehaviour
 
             new Vector3(0.784f, 10.708f, -15.641f),
             new Vector3(0.784f, 10.708f, -15.641f),
+            new Vector3(0.784f, 10.708f, -15.641f),// 25
             new Vector3(0.784f, 10.708f, -15.641f),
-            new Vector3(0.784f, 10.708f, -15.641f),
-            new Vector3(0.784f, 10.708f, -15.641f),
-            new Vector3(0.784f, 10.708f, -15.641f),
-
 
             //new Vector3(3.754f, 10.366f, -14.728f),
 
-           new Vector3(-3.63f, 4.18f, -13.88f),
-           new Vector3(-3.63f, 4.18f, -17.44f),
+            new Vector3(-3.63f, 4.18f, -13.88f),  // 27 - archery scene
+            new Vector3(-3.63f, 4.18f, -17.44f),
 
         };
 
@@ -607,7 +720,7 @@ public class LevelManager : MonoBehaviour
             new Vector3(0f, 72.942f, 0f),
 
             //new Vector3(0f, 42.915f, 0f),
-            new Vector3(5.259f, 0f, 0f),   //  18 - archery scene
+            new Vector3(5.259f, 0f, 0f),   //  27 - archery scene
             new Vector3(5.259f, 0f, 0f),
         };
     }
