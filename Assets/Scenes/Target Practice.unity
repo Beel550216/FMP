@@ -2594,6 +2594,7 @@ MonoBehaviour:
   - {fileID: 600063137}
   - {fileID: 38284354}
   targetCount: 0
+  triviaRounds: []
 --- !u!4 &263672623
 Transform:
   m_ObjectHideFlags: 0
@@ -7161,6 +7162,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Stage
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 263672622}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: ClearPoints
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &821170269

@@ -453,6 +453,11 @@ public class LevelManager : MonoBehaviour
 
             }
         }
+
+        if (SceneManager.GetActiveScene().name == "Stage")
+        {
+            UpdateText();
+        }
     }
     
     
@@ -618,6 +623,24 @@ public class LevelManager : MonoBehaviour
         print("Loaded Round: " + pT.triviaRound);
 
         pT.triviaRound++;
+    }
+
+    public void UpdateText()
+    {
+        string currentPoints = pT.points.ToString();
+        pointsText.text = currentPoints;
+    }
+
+    public void AddButtonPoints()
+    {
+        pT.AddPoints(20);
+        print("Correct Answer");
+    }
+
+    public void ClearPoints()
+    {
+        pT.points = 0f;
+        print("points" + pT.points);
     }
 
     public void NextScene()

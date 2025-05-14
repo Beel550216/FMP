@@ -513,18 +513,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1049528156}
-        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
-        m_MethodName: UpdateText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &11833435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,6 +1216,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1049528156}
+        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
+        m_MethodName: Resetpoints
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5677,18 +5677,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1049528156}
-        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
-        m_MethodName: UpdateText
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &360605674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9270,10 +9258,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1049528156}
-        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
-        m_MethodName: AddPoints
-        m_Mode: 3
+      - m_Target: {fileID: 948287369}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: AddButtonPoints
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9282,8 +9270,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1049528156}
-        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
+      - m_Target: {fileID: 948287369}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: UpdateText
         m_Mode: 1
         m_Arguments:
@@ -13312,6 +13300,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2127051190}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &850381944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14029,7 +14029,7 @@ MonoBehaviour:
   instructionText: {fileID: 0}
   playerActionText: {fileID: 0}
   roundNumberText: {fileID: 0}
-  pointsText: {fileID: 0}
+  pointsText: {fileID: 280819076}
   totalPointsText: {fileID: 0}
   sceneCount: 0
   round: 0
@@ -17097,10 +17097,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1049528156}
-        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
-        m_MethodName: AddPoints
-        m_Mode: 3
+      - m_Target: {fileID: 948287369}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: AddButtonPoints
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17109,8 +17109,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1049528156}
-        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
+      - m_Target: {fileID: 948287369}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: UpdateText
         m_Mode: 1
         m_Arguments:
@@ -32642,10 +32642,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1049528156}
-        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
-        m_MethodName: AddPoints
-        m_Mode: 3
+      - m_Target: {fileID: 948287369}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: AddButtonPoints
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -32654,8 +32654,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1049528156}
-        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
+      - m_Target: {fileID: 948287369}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: UpdateText
         m_Mode: 1
         m_Arguments:
@@ -33479,10 +33479,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1049528156}
-        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
-        m_MethodName: AddPoints
-        m_Mode: 3
+      - m_Target: {fileID: 948287369}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: AddButtonPoints
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -33491,8 +33491,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1049528156}
-        m_TargetAssemblyTypeName: PointsTracker, Assembly-CSharp
+      - m_Target: {fileID: 948287369}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: UpdateText
         m_Mode: 1
         m_Arguments:

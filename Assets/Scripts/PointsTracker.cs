@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,8 +8,6 @@ public class PointsTracker : MonoBehaviour
 
     public float points;
     public float savedPoints = 0f;
-
-    public TMP_Text pointsText;
 
     public static PointsTracker instance;
 
@@ -54,37 +53,22 @@ public class PointsTracker : MonoBehaviour
     public void AddPoints(int amount)
     {
         points = points + amount;
+
+        print("current points -" + points);
     }
 
-    public void Resetpoints()
+    /*public void Resetpoints()
     {
         points = 0f;
         PlayerPrefs.SetFloat("savedPoints", 0f);
-    }
-
-    public void UpdateText()
-    {
-        string currentPoints = points.ToString();
-        pointsText.text = currentPoints;
-    }
-
-    public void Rounds()
-    {
-        GameObject questions = triviaRounds[triviaRound];
-
-
-        questions.SetActive(true);
-        print("Loaded Round: " + triviaRound);
-
-        //triviaRound++;                                     //
-    }
+    }*/
 
 
     /*public void Fullresetpoints()
     {
         points = 0f;
         savedPoints = 0f;
-        PlayerPrefs.SetFloat("savedPoints", 1f);
+        PlayerPrefs.SetFloat("savedPoints", 0f);
 
         print("Points = " + points);
         print("savedPoints = " + savedPoints);
