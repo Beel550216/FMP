@@ -11,7 +11,6 @@ public class PointsTracker : MonoBehaviour
 
     public static PointsTracker instance;
 
-    [SerializeField] List<GameObject> triviaRounds = new List<GameObject>();
     public int triviaRound = 0;
 
     void Awake()

@@ -113,12 +113,7 @@ public class LevelManager : MonoBehaviour
             {
                 camCount = 9;
                 //textBox.SetActive(true);
-                counter = 20;
-                CutsceneList(5);
-
-                camCount = 10;
-                //textBox.SetActive(true);
-                counter = 25;
+                counter = 30;
                 CutsceneList(5);
             }
 
@@ -224,6 +219,41 @@ public class LevelManager : MonoBehaviour
             back.SetActive(false);
             next.SetActive(false);
             yes.SetActive(true);
+        }
+
+        if (num == 29)
+        {
+            back.SetActive(false);
+            next.SetActive(false);
+            textBox.SetActive(false);
+
+            if (pT.triviaRound! == 2)
+            {
+                nextGame.SetActive(true);
+            }
+
+        }
+
+        if (num == 36)
+        {
+            textBox.SetActive(false);
+            back.SetActive(false);
+            next.SetActive(false);
+            yes.SetActive(true);
+
+        }
+
+        if (num == 42)
+        {
+            back.SetActive(false);
+            next.SetActive(false);
+            textBox.SetActive(false);
+
+            if (pT.triviaRound! == 3)
+            {
+                nextGame.SetActive(true);
+            }
+
         }
 
 
@@ -391,7 +421,7 @@ public class LevelManager : MonoBehaviour
 
             new string("Before each minigame, there is a trivia round."),
             new string("These questions will test your knowledge on all things 70s."),
-            new string("Each correct answer is worth 20 points."),
+            new string("Each correct answer will earn you 20 points."),
             new string("The first trivia round is called 'Blockbuster'!"),
             new string("This round is all about films"),
             new string("Are you ready to start?"),
@@ -413,13 +443,19 @@ public class LevelManager : MonoBehaviour
             new string("This minigame takes place at a busy festival, so try not to get lost..."),    // add in a joke or something. Idk. Like "I hope you remembered your tickets or something alluding to the item becoming lost).
             
             
-            new string("You found the !"),
+            new string("Welcome back, we thought we'd lost you..."),
             new string("Don't lose it again"),
             new string("We are over halfway through todays show."),
             new string("Soon our contestant will go up against our professional dancer"),
             new string("But before that, it's time for our final trivia round..."),
             new string("'That's life'"),
             new string("This round is a culture round about life in the 70s"),
+            new string(""),
+
+            new string(""),
+            new string(""),
+            new string(""),
+            new string(""),
         };
 
     }
