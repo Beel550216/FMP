@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerScript pScript;
     public PointsTracker pT;
     public LevelManager LM;
+    public AudioManager aM;
 
     void Start()
     {
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         pScript = GameObject.Find("player Variant 1").GetComponent<PlayerScript>();
         pT = GameObject.Find("Points tracker").GetComponent<PointsTracker>();
         LM = GameObject.Find("Level Manager").GetComponent<LevelManager>();
+        aM = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
 
     }
 
@@ -129,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
         {
             print("Colided");
             pT.AddPoints(100);
+
+            aM.playSFX(1);
 
             if (hit.gameObject.activeSelf == false)
             {

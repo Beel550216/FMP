@@ -10,9 +10,11 @@ public class LevelManager : MonoBehaviour
     public static LevelManager instance;
 
     public PointsTracker pT;
+    public AudioManager aM;
 
     public Animator anim;
     public Animator playerAnim;
+    public Animator creditAnim;
     public int counter;
     public int camCount;
     public GameObject textBox;
@@ -24,6 +26,8 @@ public class LevelManager : MonoBehaviour
     public GameObject instructions;
     public GameObject playerActions;
     public GameObject EndScreen;
+    public GameObject credits;
+    public GameObject finalPoints;
 
     public TMP_Text text;
     public TMP_Text wellDoneText;
@@ -54,11 +58,13 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] List<GameObject> triviaRounds = new List<GameObject>();
     //List<string> speech = new List<string>();
+    [SerializeField] List<GameObject> triviaRoundImages = new List<GameObject>();
 
 
     void Start()
     {
         pT = GameObject.Find("Points tracker").GetComponent<PointsTracker>();
+        aM = GameObject.Find("Audio Manager").GetComponent<AudioManager>();
         CameraMovement();
         SceneCheck();
         
@@ -114,6 +120,14 @@ public class LevelManager : MonoBehaviour
                 camCount = 9;
                 //textBox.SetActive(true);
                 counter = 30;
+                CutsceneList(5);
+            }
+
+            if (pT.triviaRound == 3)
+            {
+                camCount = 9;
+                //textBox.SetActive(true);
+                counter = 42;
                 CutsceneList(5);
             }
 
@@ -256,6 +270,34 @@ public class LevelManager : MonoBehaviour
 
         }
 
+        if (num == 46)
+        {
+            textBox.SetActive(false);
+            finalPoints.SetActive(true);
+
+            totalPointsText.text = pT.savedPoints.ToString();
+            aM.playSFX(6);
+        }
+
+        if (num == 47)
+        {
+            textBox.SetActive(true);
+            finalPoints.SetActive(false);
+
+        }
+
+        if (num == 55)
+        {
+            back.SetActive(false);
+            next.SetActive(false);
+            textBox.SetActive(false);
+
+            credits.SetActive(true);
+            creditAnim.SetBool("credits", true);
+            aM.playSFX(6);
+
+        }
+
 
     }
 
@@ -308,20 +350,26 @@ public class LevelManager : MonoBehaviour
             anim.SetBool("look sideways", false);
         }
 
-        if (num >= 6 && num <= 12 && num != 7)
+        if (num >= 6 || num <= 12 || num != 7 || num == 15)
         {
             anim.SetBool("point", false);
             anim.SetBool("talk", false);
         }
 
-        if (num >= 18 && num <= 25)
+        if (num == 15)
+        {
+            anim.SetBool("look sideways", true);
+        }
+
+        if (num == 18)
         {
             anim.SetBool("look sideways", false);
             anim.SetBool("with paper", true);
         }
 
-        if (num == 26)
+        if (num == 19)
         {
+            anim.SetBool("with paper", false);
         }
 
         if (num >= 28 && num <= 35)
@@ -362,8 +410,8 @@ public class LevelManager : MonoBehaviour
             skip.SetActive(false);
             next.SetActive(true);
             back.SetActive(true);
-            counter = 12;
-            camCount = 16;
+            counter = 15;
+            camCount = 19;
         }
 
         print("counter = " + counter);
@@ -432,30 +480,45 @@ public class LevelManager : MonoBehaviour
 
             new string("Welcome back!"),
             new string("You took a while in that game..."),
-            new string("You took your time in that game..."),
 
             new string("The next trivia round is called 'Vinyl Records'!"),
             new string(""),
             new string("This round is all about the record breaking songs and musicians of the 70s!"),
             new string("Each correct answer adds 20 points to your score"),
+            new string("Good Luck"),
 
             new string("Okay, now it's onto the next minigame!"),
             new string("This minigame takes place at a busy festival, so try not to get lost..."),    // add in a joke or something. Idk. Like "I hope you remembered your tickets or something alluding to the item becoming lost).
             
             
             new string("Welcome back, we thought we'd lost you..."),
-            new string("Don't lose it again"),
+            //new string("Don't lose it again"),
             new string("We are over halfway through todays show."),
             new string("Soon our contestant will go up against our professional dancer"),
             new string("But before that, it's time for our final trivia round..."),
             new string("'That's life'"),
             new string("This round is a culture round about life in the 70s"),
-            new string(""),
+            new string("Let's begin!"),
 
+            new string("great"),
+            new string("That was the last trivia round, but there is still one more chance to gain points..."),
+            new string("As it's time for the final minigame"),
+            new string("Your points will be revealed once you return"),
+            new string("Our contestant will now go up against our professional dancer"),
+            new string("Good Luck!"),
+
+            new string("Well Done!"),
+            new string("That was our final minigame, so now it's time to see how many points you earned!"),
+            new string("I can announce that your points total is..."),
             new string(""),
+            new string("Good job"),
+            new string("Let's see what prize these points convert too"),
+            new string("The higher the points, the better the prize"),
+            new string("Tonight, you will be going home with..."),
             new string(""),
-            new string(""),
-            new string(""),
+            new string("Congratulations!"),
+            new string("Join us next week where another contestant will battle the rounds of Lii Party"),
+            new string("Goodnight!"),
         };
 
     }
@@ -484,8 +547,12 @@ public class LevelManager : MonoBehaviour
                     KeyCheck();
 
                 }
+                else
+                {
+                    EndOfRound();
+                }
 
-                EndOfRound();
+                
 
             }
         }
@@ -626,10 +693,10 @@ public class LevelManager : MonoBehaviour
             instructions.SetActive(false);
             EndScreen.SetActive(true);
 
-            pT.EndRound();
+            //pT.EndRound();
 
             pointsText.text = pT.points.ToString();
-            totalPointsText.text = pT.savedPoints.ToString();
+            //totalPointsText.text = pT.savedPoints.ToString();
         }
         if(SceneManager.GetActiveScene().name == "Maze" || SceneManager.GetActiveScene().name == "Target Practice")
         {
@@ -639,6 +706,8 @@ public class LevelManager : MonoBehaviour
             pointsText.text = pT.points.ToString();
             totalPointsText.text = pT.savedPoints.ToString();
         }
+        
+        pT.EndRound();
 
 
     }
@@ -679,6 +748,14 @@ public class LevelManager : MonoBehaviour
         print("points" + pT.points);
     }
 
+    public void ResetPoints()
+    {
+        pT.points = 0f;
+        print("points" + pT.points);
+        pT.savedPoints = 0f;
+        print("saved points" + pT.savedPoints);
+    }
+
     public void NextScene()
     {
         print("trivia round " + pT.triviaRound);
@@ -698,12 +775,35 @@ public class LevelManager : MonoBehaviour
     }
 
 
-
+    public void Prize()
+    {
+        if (pT.savedPoints >= 400 && pT.savedPoints < 500)
+        {
+            print("");
+        }
+        if (pT.savedPoints >= 500 && pT.savedPoints < 550)
+        {
+            print("");
+        }
+        if (pT.savedPoints >= 550 && pT.savedPoints < 600)
+        {
+            print("");
+        }
+        if (pT.savedPoints >= 600 && pT.savedPoints < 630)
+        {
+            print("");
+        }
+        if (pT.savedPoints >= 630)
+        {
+            //grandprize
+            print("");
+        }
+    }
 
     void CameraMovement()
     {
         cameraPos = new[]
-       {
+        {
             //new Vector3(-5.38f, 1.62f, -0.01f), // camera 0 pos
             new Vector3(-5.38f, 1.34f, 2.224f),  // camera 1 pos
             new Vector3(-6.206f, 1.257f, 2.489f),  // camera 2 pos 
