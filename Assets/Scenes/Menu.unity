@@ -1942,6 +1942,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08758a7c546b97b428f99c9423be148e, type: 3}
+--- !u!1001 &595809049
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 134800, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_Name
+      value: spoon
+      objectReference: {fileID: 0}
+    - target: {fileID: 134800, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 498078, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.252
+      objectReference: {fileID: 0}
+    - target: {fileID: 498078, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 498078, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.479
+      objectReference: {fileID: 0}
+    - target: {fileID: 498078, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.67615604
+      objectReference: {fileID: 0}
+    - target: {fileID: 498078, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.67615604
+      objectReference: {fileID: 0}
+    - target: {fileID: 498078, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.20691307
+      objectReference: {fileID: 0}
+    - target: {fileID: 498078, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.20691301
+      objectReference: {fileID: 0}
+    - target: {fileID: 498078, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 498078, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 498078, guid: 39cce5eade83562498c854658c6a4060, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -34.03
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 39cce5eade83562498c854658c6a4060, type: 3}
 --- !u!1 &606807157
 GameObject:
   m_ObjectHideFlags: 0
@@ -4681,8 +4742,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pT: {fileID: 0}
+  aM: {fileID: 0}
   anim: {fileID: 0}
   playerAnim: {fileID: 0}
+  creditAnim: {fileID: 0}
   counter: 0
   camCount: 0
   textBox: {fileID: 0}
@@ -4694,10 +4757,13 @@ MonoBehaviour:
   instructions: {fileID: 0}
   playerActions: {fileID: 0}
   EndScreen: {fileID: 0}
+  credits: {fileID: 0}
+  finalPoints: {fileID: 0}
+  prizeBox: {fileID: 0}
   text: {fileID: 0}
   wellDoneText: {fileID: 0}
   instructionText: {fileID: 0}
-  playerActionText: {fileID: 0}
+  prizeText: {fileID: 0}
   roundNumberText: {fileID: 0}
   pointsText: {fileID: 0}
   totalPointsText: {fileID: 0}
@@ -4707,6 +4773,7 @@ MonoBehaviour:
   targetSets: []
   targetCount: 0
   triviaRounds: []
+  prizes: []
 --- !u!4 &1657529029
 Transform:
   m_ObjectHideFlags: 0
@@ -8504,3 +8571,4 @@ SceneRoots:
   - {fileID: 1657529029}
   - {fileID: 4225391871702580290}
   - {fileID: 2118109145}
+  - {fileID: 595809049}
