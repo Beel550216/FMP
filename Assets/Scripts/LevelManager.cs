@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     public GameObject credits;
     public GameObject finalPoints;
     public GameObject prizeBox;
+    public GameObject skipCredits;
 
     public TMP_Text text;
     public TMP_Text wellDoneText;
@@ -102,10 +103,12 @@ public class LevelManager : MonoBehaviour
 
             if (pT.triviaRound <= 0)
             {
+                ResetPoints();
                 camCount = 9;      //29
                 counter = 5;        //42
                 CutsceneList(5);
-                pT.savedPoints = 650;
+                //pT.triviaRound = 3;
+                //pT.savedPoints = 650;
             }
             
             if (pT.triviaRound == 1)
@@ -114,14 +117,13 @@ public class LevelManager : MonoBehaviour
                 //textBox.SetActive(true);
                 counter = 20;
                 CutsceneList(5);
-
             }
 
             if (pT.triviaRound == 2)
             {
                 camCount = 9;
                 //textBox.SetActive(true);
-                counter = 30;
+                counter = 28;
                 CutsceneList(5);
             }
 
@@ -129,7 +131,7 @@ public class LevelManager : MonoBehaviour
             {
                 camCount = 29;
                 //textBox.SetActive(true);
-                counter = 42;
+                counter = 41;
                 CutsceneList(5);
             }
 
@@ -226,32 +228,50 @@ public class LevelManager : MonoBehaviour
             
         }
 
-        if (num == 27)
+        if (num == 25)
         {
-            //textBox.SetActive(false);
-            back.SetActive(false);
-            next.SetActive(false);
-            yes.SetActive(true);
+            if (pT.triviaRound == 1)
+            {
+                //textBox.SetActive(false);
+                back.SetActive(false);
+                next.SetActive(false);
+                yes.SetActive(true);
+            }
+            
         }
 
-        if (num == 29)
+        if (num == 27)
+        {
+            if (pT.triviaRound > 2)
+            {
+                //textBox.SetActive(false);
+                back.SetActive(false);
+                next.SetActive(false);
+                yes.SetActive(true);
+            }
+            if (pT.triviaRound == 2)
+            {
+                back.SetActive(false);
+                next.SetActive(false);
+                textBox.SetActive(false);
+                nextGame.SetActive(true);
+            }
+            
+        }
+
+        if (num == 28)
         {
             if (pT.triviaRound != 3)
             {
                 back.SetActive(false);
                 next.SetActive(false);
                 textBox.SetActive(false);
-                
-                if (pT.triviaRound! == 2)
-                {
-                    nextGame.SetActive(true);
-                }
-
+                nextGame.SetActive(true);
             }
 
         }
 
-        if (num == 36)
+        if (num == 34)
         {
             textBox.SetActive(false);
             back.SetActive(false);
@@ -260,20 +280,20 @@ public class LevelManager : MonoBehaviour
 
         }
 
-        if (num == 42)
+        if (num == 40)
         {
             back.SetActive(false);
             next.SetActive(false);
             textBox.SetActive(false);
 
-            if (pT.triviaRound! == 3)
+            if (pT.triviaRound == 3)
             {
                 nextGame.SetActive(true);
             }
 
         }
 
-        if (num == 46)
+        if (num == 45)
         {
             textBox.SetActive(false);
             finalPoints.SetActive(true);
@@ -282,18 +302,18 @@ public class LevelManager : MonoBehaviour
             aM.playSFX(6);
         }
 
-        if (num == 47)
+        if (num == 46)
         {
             textBox.SetActive(true);
             finalPoints.SetActive(false);
 
         }
-        if (num == 51)
+        if (num == 50)
         {
             Prize();
             prizeBox.SetActive(true);
         }
-        if (num == 52)
+        if (num == 51)
         {
             prizeBox.SetActive(false);
         }
@@ -303,7 +323,7 @@ public class LevelManager : MonoBehaviour
             next.SetActive(true);
         }*/
 
-        if (num == 55)
+        if (num == 54)
         {
             next.SetActive(false);
             textBox.SetActive(false);
@@ -311,6 +331,7 @@ public class LevelManager : MonoBehaviour
             credits.SetActive(true);
             creditAnim.SetBool("credits", true);
             aM.playSFX(6);
+            skipCredits.SetActive(true);
 
         }
 
@@ -348,7 +369,7 @@ public class LevelManager : MonoBehaviour
             anim.SetBool("pose3", false);
         }
 
-        if (num == 6 || num == 8)
+        if (num == 6 || num == 8 || num == 41)
         {
             anim.SetBool("start", true);
         }
@@ -372,18 +393,18 @@ public class LevelManager : MonoBehaviour
             anim.SetBool("talk", false);
         }
 
-        if (num == 15)
+        if (num == 15 || num == 42)
         {
             anim.SetBool("look sideways", true);
         }
 
-        if (num == 18)
+        if (num == 18 || num == 43 || num == 54)
         {
             anim.SetBool("look sideways", false);
             anim.SetBool("with paper", true);
         }
 
-        if (num == 19)
+        if (num == 19 || num == 51)
         {
             anim.SetBool("with paper", false);
         }
@@ -461,6 +482,11 @@ public class LevelManager : MonoBehaviour
             back.SetActive(true);
         }
 
+        if (num == 43)
+        {
+            textBox.SetActive(false);
+        }
+
     }
 
     public void List()
@@ -496,16 +522,16 @@ public class LevelManager : MonoBehaviour
 
             new string("Welcome back!"),
             new string("You took a while in that game..."),
-            new string(""),
+            //new string("The points have been added to your total"),
             new string("The next trivia round is called 'Vinyl Records'!"),
             new string("This round is all about the record breaking songs and musicians of the 70s!"),
             new string("Each correct answer adds 20 points to your score"),
-            new string("Good Luck"),
+            //new string("Good Luck"),
 
             new string("Okay, now it's onto the next minigame!"),
             new string("This minigame takes place at a busy festival, so try not to get lost..."),    // add in a joke or something. Idk. Like "I hope you remembered your tickets or something alluding to the item becoming lost).
             
-            
+            new string(" "),
             new string("Welcome back, we thought we'd lost you..."),
             //new string("Don't lose it again"),
             new string("We are over halfway through todays show."),
@@ -527,7 +553,7 @@ public class LevelManager : MonoBehaviour
             new string("I can announce that your points total is..."),
             new string(""),
             new string("Good job"),
-            new string("Let's see what prize these points convert too"),
+            new string("Let's see what prize these points convert to"),
             new string("The higher the points, the better the prize"),
             new string("Tonight, you will be going home with..."),
             new string(""),
@@ -868,13 +894,13 @@ public class LevelManager : MonoBehaviour
             new Vector3(-3.63f, 4.18f, -17.44f),
 
 
-
-             new Vector3(-17.02f, 11.764f, -19.45f), // 29
-            new Vector3(3.754f, 10.366f, -14.728f),
-            new Vector3(3.754f, 10.366f, -14.728f),
-            new Vector3(0.34f, 10.79f, -21.25f),
+            new Vector3(-17.02f, 11.764f, -19.45f), // 29
             new Vector3(0.27f, 10.79f, -11.329f),
             new Vector3(0.27f, 10.79f, -11.329f),
+            new Vector3(0.784f, 10.708f, -15.641f),
+            new Vector3(0.784f, 10.708f, -15.641f),
+            new Vector3(0.784f, 10.708f, -15.641f),
+            new Vector3(0.784f, 10.708f, -15.641f),
             new Vector3(0.27f, 10.79f, -11.329f),
             new Vector3(0.27f, 10.79f, -11.329f),
             new Vector3(0.27f, 10.79f, -11.329f),
@@ -882,9 +908,7 @@ public class LevelManager : MonoBehaviour
             new Vector3(0.27f, 10.79f, -11.329f),
             new Vector3(0.27f, 10.79f, -11.329f),
             new Vector3(0.27f, 10.79f, -11.329f),
-            new Vector3(0.27f, 10.79f, -11.329f),
-            new Vector3(0.27f, 10.79f, -11.329f),
-            new Vector3(0.27f, 10.79f, -11.329f),
+            new Vector3(-17.02f, 11.764f, -19.45f),
 
         };
 
@@ -927,12 +951,12 @@ public class LevelManager : MonoBehaviour
             new Vector3(5.259f, 0f, 0f),
 
 
-            new Vector3(0f, 47.794f, 0f),        // 29
-            new Vector3(0f, 42.915f, 0f),
-            new Vector3(0f, 42.915f, 0f),
-            new Vector3(0f, 42.915f, 0f),
+            new Vector3(0f, 80.962f, 0f),       // 29
             new Vector3(0f, 80.962f, 0f),
             new Vector3(0f, 80.962f, 0f),
+            new Vector3(0f, 67.794f, 0f),
+            new Vector3(0f, 67.794f, 0f),
+            new Vector3(0f, 67.794f, 0f),
             new Vector3(0f, 80.962f, 0f),
             new Vector3(0f, 80.962f, 0f),
             new Vector3(0f, 80.962f, 0f),
@@ -940,8 +964,8 @@ public class LevelManager : MonoBehaviour
             new Vector3(0f, 80.962f, 0f),
             new Vector3(0f, 80.962f, 0f),
             new Vector3(0f, 80.962f, 0f),
-            new Vector3(0f, 80.962f, 0f),
-            new Vector3(0f, 80.962f, 0f),
+            new Vector3(0f, 47.794f, 0f),
+            
         };
     }
     public void MoveCamera(int index)

@@ -96,12 +96,11 @@ public class PlayerMovement : MonoBehaviour
             //anim.SetBool("walk", true);
            
 
-            if (Input.GetKey(KeyCode.LeftShift))
+            /*if (Input.GetKey(KeyCode.LeftShift))  // used when testing.
             {
                 speed = 3f;
                 //Animate(3);
-            }
-            else
+            }*/
             {
                 if (SceneManager.GetActiveScene().name == "Target Practice")
                 {
