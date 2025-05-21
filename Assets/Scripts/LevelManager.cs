@@ -104,8 +104,8 @@ public class LevelManager : MonoBehaviour
             if (pT.triviaRound <= 0)
             {
                 ResetPoints();
-                camCount = 9;      //29
-                counter = 5;        //42
+                camCount = 9;      
+                counter = 5;        
                 CutsceneList(5);
                 //pT.triviaRound = 3;
                 //pT.savedPoints = 650;
@@ -114,7 +114,6 @@ public class LevelManager : MonoBehaviour
             if (pT.triviaRound == 1)
             {
                 camCount = 9;
-                //textBox.SetActive(true);
                 counter = 20;
                 CutsceneList(5);
             }
@@ -122,7 +121,6 @@ public class LevelManager : MonoBehaviour
             if (pT.triviaRound == 2)
             {
                 camCount = 9;
-                //textBox.SetActive(true);
                 counter = 28;
                 CutsceneList(5);
             }
@@ -130,7 +128,6 @@ public class LevelManager : MonoBehaviour
             if (pT.triviaRound == 3)
             {
                 camCount = 29;
-                //textBox.SetActive(true);
                 counter = 41;
                 CutsceneList(5);
             }
@@ -482,11 +479,6 @@ public class LevelManager : MonoBehaviour
             back.SetActive(true);
         }
 
-        if (num == 43)
-        {
-            textBox.SetActive(false);
-        }
-
     }
 
     public void List()
@@ -560,6 +552,7 @@ public class LevelManager : MonoBehaviour
             new string("Congratulations!"),
             new string("Join us next week where another contestant will battle the rounds of Lii Party"),
             new string("Goodnight!"),
+            new string(""),
         };
 
     }
@@ -769,6 +762,16 @@ public class LevelManager : MonoBehaviour
         print("Loaded Round: " + pT.triviaRound);
 
         pT.triviaRound++;
+    }
+
+    public void Credits()
+    {
+        if(counter == 54)
+        {
+            ClearPoints();
+            textBox.SetActive(false);
+        }
+        
     }
 
     public void UpdateText()
