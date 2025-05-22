@@ -76,6 +76,7 @@ public class LevelManager : MonoBehaviour
 
     public void Quit()
     {
+        ResetPoints();
         Application.Quit();
     }
     
@@ -103,12 +104,11 @@ public class LevelManager : MonoBehaviour
 
             if (pT.triviaRound <= 0)
             {
-                ResetPoints();
                 camCount = 9;      
                 counter = 5;        
                 CutsceneList(5);
-                //pT.triviaRound = 3;
-                //pT.savedPoints = 650;
+                //pT.triviaRound = 1;
+                //pT.savedPoints = 500;
             }
             
             if (pT.triviaRound == 1)
@@ -186,7 +186,7 @@ public class LevelManager : MonoBehaviour
             textBox.SetActive(false);
             instructions.SetActive(true);
             playerActions.SetActive(true);
-            StartDance();
+            DanceList();
         }
 
         if (num == 5)
@@ -246,7 +246,13 @@ public class LevelManager : MonoBehaviour
                 next.SetActive(false);
                 yes.SetActive(true);
             }
-            if (pT.triviaRound == 2)
+            
+            
+        }
+
+        if (num == 28)
+        {
+            if (pT.triviaRound != 3)
             {
                 back.SetActive(false);
                 next.SetActive(false);
@@ -254,11 +260,7 @@ public class LevelManager : MonoBehaviour
                 nextGame.SetActive(true);
             }
             
-        }
-
-        if (num == 28)
-        {
-            if (pT.triviaRound != 3)
+            if (pT.triviaRound == 2)
             {
                 back.SetActive(false);
                 next.SetActive(false);
@@ -366,7 +368,7 @@ public class LevelManager : MonoBehaviour
             anim.SetBool("pose3", false);
         }
 
-        if (num == 6 || num == 8 || num == 41)
+        if (num == 6 || num == 8 || num == 20 || num == 41)
         {
             anim.SetBool("start", true);
         }
@@ -384,18 +386,18 @@ public class LevelManager : MonoBehaviour
             anim.SetBool("look sideways", false);
         }
 
-        if (num >= 6 || num <= 12 || num != 7 || num == 15)
+        if ( num <= 12 || num == 15)  //|| num != 7 || num >= 6
         {
             anim.SetBool("point", false);
             anim.SetBool("talk", false);
         }
 
-        if (num == 15 || num == 42)
+        if (num == 15 || num == 24 || num == 42)
         {
             anim.SetBool("look sideways", true);
         }
 
-        if (num == 18 || num == 43 || num == 54)
+        if (num == 18 || num == 25 || num == 43 || num == 54)
         {
             anim.SetBool("look sideways", false);
             anim.SetBool("with paper", true);
@@ -522,24 +524,25 @@ public class LevelManager : MonoBehaviour
 
             new string("Okay, now it's onto the next minigame!"),
             new string("This minigame takes place at a busy festival, so try not to get lost..."),    // add in a joke or something. Idk. Like "I hope you remembered your tickets or something alluding to the item becoming lost).
-            
-            new string(" "),
+            new string("This minigame takes place at a busy festival, so try not to get lost..."),
+
             new string("Welcome back, we thought we'd lost you..."),
             //new string("Don't lose it again"),
             new string("We are over halfway through todays show."),
-            new string("Soon our contestant will go up against our professional dancer"),
-            new string("But before that, it's time for our final trivia round..."),
+            //new string("Soon our contestant will go up against our professional dancer"),
+            new string("Now, it's time for our final trivia round..."),
             new string("'That's life'"),
             new string("This round is a culture round about life in the 70s"),
             new string("Let's begin!"),
 
-            new string("great"),
+            new string("Well done"),
             new string("That was the last trivia round, but there is still one more chance to gain points..."),
             new string("As it's time for the final minigame"),
             new string("Your points will be revealed once you return"),
             new string("Our contestant will now go up against our professional dancer"),
             new string("Good Luck!"),
 
+            new string(""),
             new string("Well Done!"),                     //44?
             new string("That was our final minigame, so now it's time to see how many points you earned!"),
             new string("I can announce that your points total is..."),
@@ -573,9 +576,8 @@ public class LevelManager : MonoBehaviour
                         instructionText.text = "Correct!";
                         pT.AddPoints(10);
 
-                        //Animate(0);
-
-                        StartDance();
+                        //Animate(0);    
+                        DanceList();  
 
                     }
                     KeyCheck();
@@ -597,29 +599,36 @@ public class LevelManager : MonoBehaviour
         }
     }
     
-    
-    void StartDance()
+
+    void DanceList()
     {
-        int randomInt = Random.Range(2, 5);
-        int randomCounter = randomInt;
+        List<int> number = new List<int>();
 
-        print("number of moves = " + randomCounter);
+        int randomCount = Random.Range(3, 7);
+        print("Adding" + randomCount + " random integers to the list...");
 
-        if (randomCounter != 0)
+        for(int i = 0; i < randomCount; i++)
         {
-            RandomPose();
-            //randomCounter--;
+            number.Add(1);
+            print("added");
         }
+
+        foreach (int x in number)
+        {
+            print("adddded");
+
+            RandomPose();
+        }
+
         KeyCheck();
-
+        
     }
-
-
 
     void RandomPose()
     {
-        randomPose =  Random.Range(1f, 6f);
+        randomPose =  Random.Range(1f, 5f);
 
+        print("random =" + randomPose);
         Animate(0);
 
         instructionText.text = "";
@@ -658,7 +667,6 @@ public class LevelManager : MonoBehaviour
             anim.SetBool("check", true);
         }
 
-
     }
 
 
@@ -667,7 +675,7 @@ public class LevelManager : MonoBehaviour
     {
         print("Keychecking");
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             playerAction = 1;
         }
@@ -727,7 +735,7 @@ public class LevelManager : MonoBehaviour
             instructions.SetActive(false);
             EndScreen.SetActive(true);
 
-            //pT.EndRound();
+            pT.EndRound();
 
             pointsText.text = pT.points.ToString();
             //totalPointsText.text = pT.savedPoints.ToString();
@@ -740,8 +748,12 @@ public class LevelManager : MonoBehaviour
             pointsText.text = pT.points.ToString();
             totalPointsText.text = pT.savedPoints.ToString();
         }
+        else
+        {
+           pT.EndRound(); 
+        }
         
-        pT.EndRound();
+        
 
 
     }
@@ -821,31 +833,31 @@ public class LevelManager : MonoBehaviour
 
     public void Prize()
     {
-        if (pT.savedPoints >= 400 && pT.savedPoints < 600)
+        if (pT.savedPoints >= 300 && pT.savedPoints < 400)
         {
             prizeText.text = "A camera!";
             GameObject prize = prizes[0];
             prize.SetActive(true);
         }
-        if (pT.savedPoints >= 600 && pT.savedPoints < 630)
+        if (pT.savedPoints >= 400 && pT.savedPoints < 450)
         {
             prizeText.text = "A microwave!";
             GameObject prize = prizes[1];
             prize.SetActive(true);
         }
-        if (pT.savedPoints >= 630 && pT.savedPoints < 650)
+        if (pT.savedPoints >= 450 && pT.savedPoints < 480)
         {
             prizeText.text = "A guitar!";
             GameObject prize = prizes[2];
             prize.SetActive(true);
         }
-        if (pT.savedPoints >= 650 && pT.savedPoints < 690)
+        if (pT.savedPoints >= 480 && pT.savedPoints < 550)
         {
             prizeText.text = "A popcorn machine!";
             GameObject prize = prizes[3];
             prize.SetActive(true);
         }
-        if (pT.savedPoints >= 700)
+        if (pT.savedPoints >= 550)
         {
             //grandprize
             prizeText.text = "A car!";

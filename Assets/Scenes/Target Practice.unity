@@ -530,6 +530,7 @@ RectTransform:
   - {fileID: 170881655}
   - {fileID: 1949927144}
   - {fileID: 240840786}
+  - {fileID: 717187407}
   m_Father: {fileID: 805280774}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2563,6 +2564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pT: {fileID: 0}
+  aM: {fileID: 0}
   anim: {fileID: 0}
   playerAnim: {fileID: 0}
   creditAnim: {fileID: 0}
@@ -2578,10 +2580,13 @@ MonoBehaviour:
   playerActions: {fileID: 0}
   EndScreen: {fileID: 488791715}
   credits: {fileID: 0}
+  finalPoints: {fileID: 0}
+  prizeBox: {fileID: 0}
+  skipCredits: {fileID: 0}
   text: {fileID: 0}
   wellDoneText: {fileID: 0}
   instructionText: {fileID: 0}
-  playerActionText: {fileID: 0}
+  prizeText: {fileID: 0}
   roundNumberText: {fileID: 0}
   pointsText: {fileID: 1212282149}
   totalPointsText: {fileID: 142833766}
@@ -2597,7 +2602,7 @@ MonoBehaviour:
   - {fileID: 38284354}
   targetCount: 0
   triviaRounds: []
-  triviaRoundImages: []
+  prizes: []
 --- !u!4 &263672623
 Transform:
   m_ObjectHideFlags: 0
@@ -6249,6 +6254,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707365788}
   m_CullTransparentMesh: 1
+--- !u!1 &717187406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 717187407}
+  - component: {fileID: 717187409}
+  - component: {fileID: 717187408}
+  m_Layer: 5
+  m_Name: Image (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &717187407
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717187406}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.000066706125}
+  m_LocalScale: {x: 15.849024, y: 13.377597, z: 18.737303}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 105326761}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -702.8148, y: -74.37077}
+  m_SizeDelta: {x: 96.1258, y: 99.2745}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &717187408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717187406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.7137255, g: 0.8418882, b: 1, a: 0.13333334}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &717187409
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717187406}
+  m_CullTransparentMesh: 1
 --- !u!114 &718513215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7122,18 +7202,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 263672622}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: SceneCounter
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 263672622}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadSceneName
         m_Mode: 5
         m_Arguments:
@@ -7783,8 +7851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -2.5327, y: 11.2178}
+  m_SizeDelta: {x: 149.3971, y: 152.185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &973996366
 MonoBehaviour:
@@ -13265,7 +13333,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 263672622}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: ClearPoints
+        m_MethodName: ResetPoints
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

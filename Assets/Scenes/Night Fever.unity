@@ -16089,6 +16089,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1763938756}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: ResetPoints
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1763938756}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadSceneName
         m_Mode: 5
         m_Arguments:
@@ -17778,8 +17790,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pT: {fileID: 0}
+  aM: {fileID: 0}
   anim: {fileID: 173258288}
   playerAnim: {fileID: 0}
+  creditAnim: {fileID: 0}
   counter: 0
   camCount: 0
   textBox: {fileID: 1393309137}
@@ -17791,10 +17805,14 @@ MonoBehaviour:
   instructions: {fileID: 890719896}
   playerActions: {fileID: 1919181688}
   EndScreen: {fileID: 577588919}
+  credits: {fileID: 0}
+  finalPoints: {fileID: 0}
+  prizeBox: {fileID: 0}
+  skipCredits: {fileID: 0}
   text: {fileID: 3657823}
   wellDoneText: {fileID: 1865251273}
   instructionText: {fileID: 1594092393}
-  playerActionText: {fileID: 1185076641}
+  prizeText: {fileID: 0}
   roundNumberText: {fileID: 1334039099}
   pointsText: {fileID: 117527312}
   totalPointsText: {fileID: 0}
@@ -17804,7 +17822,7 @@ MonoBehaviour:
   targetSets: []
   targetCount: 0
   triviaRounds: []
-  triviaRoundImages: []
+  prizes: []
 --- !u!4 &1763938757
 Transform:
   m_ObjectHideFlags: 0
