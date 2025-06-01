@@ -812,6 +812,12 @@ public class LevelManager : MonoBehaviour
         print("saved points" + pT.savedPoints);
     }
 
+    public void ResetRound()
+    {
+        pT.triviaRound = 0;
+    }
+
+
     public void NextScene()
     {
         print("trivia round " + pT.triviaRound);
