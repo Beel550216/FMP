@@ -753,8 +753,6 @@ public class LevelManager : MonoBehaviour
            pT.EndRound(); 
         }
         
-        
-
 
     }
 
@@ -863,11 +861,18 @@ public class LevelManager : MonoBehaviour
             GameObject prize = prizes[3];
             prize.SetActive(true);
         }
-        if (pT.savedPoints >= 550)
+        if (pT.savedPoints >= 550 && pT.savedPoints < 660)
         {
             //grandprize
             prizeText.text = "A car!";
             GameObject prize = prizes[4];
+            prize.SetActive(true);
+        }
+        if (pT.savedPoints >= 660)
+        {
+            //grandprize
+            prizeText.text = "A tv!";
+            GameObject prize = prizes[5];
             prize.SetActive(true);
         }
     }
