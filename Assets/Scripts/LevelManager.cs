@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -41,6 +41,8 @@ public class LevelManager : MonoBehaviour
 
     private int action;          //
     private int playerAction;    //
+    private int danceNum;  
+    private int randomCount;
 
     private float randomPose;    //
 
@@ -563,6 +565,8 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        //Dance();
+
         if (SceneManager.GetActiveScene().name == "Night Fever")
         {
             if (counter == 4)
@@ -580,12 +584,13 @@ public class LevelManager : MonoBehaviour
                         DanceList();  
 
                     }
+                    Dance();
                     KeyCheck();
 
                 }
                 else
                 {
-                    EndOfRound();
+                    //EndOfRound();
                 }
 
                 
@@ -599,10 +604,32 @@ public class LevelManager : MonoBehaviour
         }
     }
     
+    string[] DanceMoves = {"dance1", "dance2", "dance3", "dance4"};
+    
+    void Dance()
+    {
+        if(danceNum != randomCount)
+        {
+            string randomIndex = DanceMoves[Random.Range(0, DanceMoves.Length)];
+            //string randomMove = DanceMoves[randomIndex];//
+            
+            print("random index" + randomIndex);
+            danceNum++;
+            Pose(randomIndex);
+        }
+        print(DanceMoves[0]);
+    }
+    
 
     void DanceList()
-    {
-        List<int> number = new List<int>();
+    {   
+        int randomCount = Random.Range(2, 7);
+
+        print("random count" - randomCount);
+        danceNum = 0;
+
+        //Dance();
+        /*List<int> number = new List<int>();
 
         int randomCount = Random.Range(3, 7);
         print("Adding" + randomCount + " random integers to the list...");
@@ -618,22 +645,16 @@ public class LevelManager : MonoBehaviour
             print("adddded");
 
             RandomPose();
-        }
+        }*/
 
-        KeyCheck();
+        //KeyCheck();
         
     }
 
-    void RandomPose()
-    {
-        randomPose =  Random.Range(1f, 5f);
+    void Pose(string danceMove)
+    {action = 2;
 
-        print("random =" + randomPose);
-        Animate(0);
-
-        instructionText.text = "";
-
-        if (randomPose >= 1)            //&& randomPose < 2
+        if (danceMove == "dance1")            //&& randomPose < 2  //DanceMoves[0];
         {
             anim.SetBool("pose1", true);
             action = 1;
@@ -642,7 +663,53 @@ public class LevelManager : MonoBehaviour
 
             anim.SetBool("check", true);
         }
-        if (randomPose >= 2)
+        if (danceMove == "dance2")           //DanceMoves[1];
+        {
+            anim.SetBool("pose2", true);
+            action = 2;
+            instructionText.text = instructionText.text + " S";
+            print("Dancer S");
+            anim.SetBool("check", true);
+        }
+        if (danceMove == "dance3")
+        {
+            anim.SetBool("pose3", true);
+            action = 3;
+            instructionText.text = instructionText.text + " D";
+            print("Dancer D");
+            anim.SetBool("check", true);
+        }
+        if (danceMove == "dance4")
+        {
+            anim.SetBool("pose4", true);
+            action = 4;
+            instructionText.text = instructionText.text + " F";
+            print("Dancer F");
+            anim.SetBool("check", true);
+        }
+
+
+    }
+
+   /* void RandomPose()
+    {
+        randomPose =  Random.Range(1f, 5f);
+
+        print("random =" + randomPose);
+        Animate(0);
+
+        instructionText.text = "";
+
+        if (randomPose >= 1)            //&& randomPose < 2  //DanceMoves[0];
+        {
+            anim.SetBool("pose1", true);
+            action = 1;
+            instructionText.text = instructionText.text + " A";
+            print("Dancer A");
+
+            anim.SetBool("check", true);
+        }
+        if (randomPose >= 2)           //DanceMoves[1];
         {
             anim.SetBool("pose2", true);
             action = 2;
@@ -667,7 +734,7 @@ public class LevelManager : MonoBehaviour
             anim.SetBool("check", true);
         }
 
-    }
+    }*/
 
 
 
